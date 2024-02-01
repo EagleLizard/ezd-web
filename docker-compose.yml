@@ -7,7 +7,7 @@ services:
     ports:
       - "4269:80"
     volumes:
-      - ${HOME_BASE_DIR}/ezdweb/nginx/web:/usr/share/nginx/html
+      - ./dist:/usr/share/nginx/html
   cloudflare-tunnel:
     container_name: cloudflare-tunnel
     image: cloudflare/cloudflared
