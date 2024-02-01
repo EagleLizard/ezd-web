@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - "4269:80"
+    volumes:
+      - ${HOME_BASE_DIR}/ezdweb/nginx/web:/usr/share/nginx/html
+  cloudflare-tunnel:
+    container_name: cloudflare-tunnel
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDEFLARE_TUNNEL_TOKEN}
+    volumes:
+      - ${HOME_BASE_DIR}/cloudflare-tunnel/config:/etc/cloudflared
