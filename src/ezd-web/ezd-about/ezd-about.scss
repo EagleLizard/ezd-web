@@ -1,0 +1,9 @@
+@import '../../shared.scss';
+
+.ezd-about {
+  @include ezd-page;
+  .ezd-about-content {
+    padding: 1em;
+    @include ezd-markdown; 
+  }
+}

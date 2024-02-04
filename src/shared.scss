@@ -1,0 +1,23 @@
+
+@mixin ezd-page {
+  padding: 2em;
+}
+
+@mixin ezd-markdown {
+  h1 {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

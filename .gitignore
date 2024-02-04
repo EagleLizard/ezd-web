@@ -1,1 +1,7 @@
 .env
+node_modules
+.vscode
+.DS_Store
+dist
+public/*
+package-lock.json

@@ -1,0 +1,10 @@
+
+@import '../shared.scss';
+.ezd-web {
+  // background-color: chartreuse;
+  @include ezd-page;
+  .ezd-web-content {
+    @include ezd-markdown;
+    padding: 1em;
+  }
+}
