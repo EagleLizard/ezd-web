@@ -3,7 +3,8 @@ import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import './ezd-about.scss';
 import React, { useEffect, useState } from 'react';
-import { Card, Paper } from '@material-ui/core';
+import { Button, Card, Paper } from '@material-ui/core';
+import { EzdCard } from '../../components/ezd-card/ezd-card';
 
 type EzdAboutProps = {
 
@@ -25,13 +26,15 @@ export function EzdAbout(props: EzdAboutProps) {
 
   return (
     <div className="ezd-about">
-      <Card>
-        <div className="ezd-about-content">
-          <Markdown rehypePlugins={[rehypeRaw]}>
-            {ezdAboutMarkdown}
-          </Markdown>
+      <EzdCard>
+        <div className="ezd-about-content-container">
+          <div className="ezd-about-markdown">
+            <Markdown rehypePlugins={[rehypeRaw]}>
+              {ezdAboutMarkdown}
+            </Markdown>
+          </div>
         </div>
-      </Card>
+      </EzdCard>
     </div>
   );
 

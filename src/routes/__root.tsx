@@ -13,11 +13,11 @@ export const Route = createRootRoute({
           About
         </Link>
       </div> */}
-      <div>
-        <TopNav/>
-      </div>
-      <hr />
+      {/* <hr /> */}
       <Outlet />
+      {/* <div> */}
+        <TopNav/>
+      {/* </div> */}
       {/* <TanStackRouterDevtools /> */}
     </>
   ),

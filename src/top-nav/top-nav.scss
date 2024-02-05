@@ -1,4 +1,28 @@
 
-.top-nav {
-  
+div.top-nav {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: unset;
+  border-bottom: 1px solid white;
+  // background: linear-gradient(90deg, chartreuse, cyan);
+  padding: 5px;
+  display: flex;
+  .top-nav-btn {
+    &:not(:first-of-type) {
+      padding-left: 5px;
+    }
+    .ezd-button {
+      background-color: rgb(30, 30, 30);
+    }
+  }
+  .top-nav-divider {
+    border-left: 1px solid rgb(128, 128, 128);
+    border-right: 1px solid rgb(255, 255, 255);
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  background-color: rgb(150, 150, 150);
 }

@@ -3,8 +3,12 @@
 .ezd-web {
   // background-color: chartreuse;
   @include ezd-page;
-  .ezd-web-content {
+  .ezd-web-content-container {
     @include ezd-markdown;
     padding: 1em;
+    padding: 5px;
+    .ezd-markdown-content {
+      @include ezd-markdown-content;
+    }
   }
 }

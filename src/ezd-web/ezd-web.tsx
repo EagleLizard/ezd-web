@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 
 import Markdown from 'react-markdown';
 import { Button, Card, createTheme, ThemeProvider } from '@material-ui/core';
+import { EzdButton } from '../components/ezd-button/ezd-button';
+import { EzdCard } from '../components/ezd-card/ezd-card';
 
 
 type EzdWebProps = {
@@ -31,13 +33,30 @@ export function EzdWeb(props: EzdWebProps) {
         {/* <div>
           <Button>etc</Button>
         </div> */}
-        <Card>
-          <div className="ezd-web-content">
+        <div>
+          hello
+        </div>
+        {/* <Card className="ezd-web-content-container window">
+          <Button
+            variant="outlined"
+            className="button-98 ezd-button"
+          >
+            Test
+          </Button>
+          <EzdButton>
+            Test
+          </EzdButton>
+          <pre className="pre-98">
+            etc
+          </pre>
+        </Card> */}
+        <EzdCard className="ezd-web-content-container">
+          <div className="ezd-markdown-content">
             <Markdown>
               {ezdWebMarkdown}
             </Markdown>
           </div>
-        </Card>
+        </EzdCard>
       </div>
     </div>
   );

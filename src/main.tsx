@@ -9,9 +9,36 @@ import { CssBaseline, ThemeProvider, createTheme } from '@material-ui/core';
 import { routeTree } from './routeTree.gen';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 
+import './external/98.css';
+
 const ezdTheme = createTheme({
+  shape: {
+    borderRadius: 0
+  },
   palette: {
     type: 'dark',
+    
+  },
+  // typography: {
+  //   fontFamily: [
+  //     'Pixelated MS Sans Serif'
+  //   ].join(','),
+  // },
+  overrides: {
+    MuiPaper: {
+      
+    }
+  },
+  // shadows: {
+    
+  // },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    },
+    MuiPaper: {
+      
+    }
   },
 });
 

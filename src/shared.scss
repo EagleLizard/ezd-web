@@ -1,6 +1,6 @@
 
 @mixin ezd-page {
-  padding: 2em;
+  padding: 1em;
 }
 
 @mixin ezd-markdown {
@@ -20,4 +20,15 @@
       text-decoration: underline;
     }
   }
+}
+
+@mixin inset-border {
+  box-shadow: inset -1px -1px #ffffff , inset 1px 1px #808080 ,
+    inset -2px -2px #dfdfdf , inset 2px 2px #0a0a0a
+}
+
+@mixin ezd-markdown-content {
+  padding: 1em;
+  background-color: rgb(50, 50, 50);
+  @include inset-border;
 }

@@ -2,8 +2,11 @@
 
 .ezd-about {
   @include ezd-page;
-  .ezd-about-content {
-    padding: 1em;
+  .ezd-about-content-container {
+    padding: 5px;
     @include ezd-markdown; 
+    .ezd-about-markdown {
+      @include ezd-markdown-content;
+    }
   }
 }
