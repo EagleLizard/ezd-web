@@ -3,6 +3,11 @@ import './start-menu.scss';
 import { Link } from '@tanstack/react-router';
 import { EzdButton } from '../../components/ezd-button/ezd-button';
 
+
+type StartMenuItem = {
+
+};
+
 type StartMenuProps = {
 
 };
@@ -11,28 +16,36 @@ export const StartMenu = React.forwardRef<HTMLDivElement, StartMenuProps>(
   function StartMenu(props: StartMenuProps, ref) {
     return (
       <div className="start-menu window" ref={ref}>
+        <div className="left-banner">
+          
+        </div>
         <div className="start-menu-container">
-          Start Menu
-        </div>
-        <div
-          className="horizontal-divider"
-        />
-        <div className="top-nav-btn">
-          <Link to="/">
-            <EzdButton>
-              Home 
-            </EzdButton>
-          </Link>
-        </div>
-        <div
-          className="horizontal-divider"
-        />
-        <div className="top-nav-btn">
-          <Link to="/about">
-            <EzdButton>
+          <div className="start-menu-item">
+            <Link
+              to="/"
+              className="start-menu-link"
+            >
+              <div className="start-menu-item-content">
+                Home
+              </div>
+            </Link>
+          </div>
+          <div
+            className="horizontal-divider"
+          />
+          <div className="start-menu-item">
+            <Link
+              to="/about"
+              className="start-menu-link"
+            >
+              <div className="start-menu-item-content">
                 About
-            </EzdButton>
-          </Link>
+              </div>
+            </Link>
+          </div>
+          <div
+            className="horizontal-divider"
+          />
         </div>
       </div>
     );

@@ -1,17 +1,44 @@
 
 @import '../../shared.scss';
 
+$start-menu-secondary-color: green;
+
 .start-menu {
-  color: black;
-  background-color: rgb(192, 192, 192);
+  display: flex;
+  // color: black;
+  // background-color: rgb(192, 192, 192);
+  background-color: rgb(100, 100, 100);
   margin-bottom: 5px;
-  min-width: 200px;
-  min-height: 340px;
+  // min-width: 200px;
+  min-width: 20em;
+  // min-height: 340px;
+  min-height: 34em;
   padding: 5px;
+
+  .left-banner {
+    min-width: 21px;
+    background-color: $start-menu-secondary-color;
+  }
   .horizontal-divider {
     border-top: 1px solid rgb(128, 128, 128);
     border-bottom: 1px solid rgb(255, 255, 255);
-    margin: 5px 0px;
+    margin: 0px 3px;
   }
-
+  .start-menu-container  {
+    flex: 1 1;
+    .start-menu-link {
+      text-decoration: none;
+      color: black;
+      .start-menu-item-content {
+        padding: 0 3px;
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+        &:hover {
+          background-color: $start-menu-secondary-color;
+          color: white;
+        }
+      }
+    }
+  }
 }
