@@ -4,7 +4,7 @@ import React from 'react';
 import { Root, createRoot } from 'react-dom/client';
 
 import { EzdWeb } from './ezd-web/ezd-web';
-import { CssBaseline, ThemeProvider, createTheme } from '@material-ui/core';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
 import { routeTree } from './routeTree.gen';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
@@ -16,30 +16,24 @@ const ezdTheme = createTheme({
     borderRadius: 0
   },
   palette: {
-    type: 'dark',
+    mode: 'dark',
     
   },
-  // typography: {
-  //   fontFamily: [
-  //     'Pixelated MS Sans Serif'
-  //   ].join(','),
-  // },
-  overrides: {
-    MuiPaper: {
-      
-    }
-  },
-  // shadows: {
-    
-  // },
-  props: {
-    MuiButtonBase: {
-      disableRipple: true,
+  components: {
+    MuiButton: {
+      defaultProps: {
+        disableRipple: true,
+      },
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          padding: 0,
+          color: 'initial'
+        }
+      }
     },
-    MuiPaper: {
-      
-    }
   },
+  spacing: 0
 });
 
 const router = createRouter({ routeTree })

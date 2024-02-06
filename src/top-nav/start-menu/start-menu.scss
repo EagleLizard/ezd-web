@@ -1,14 +1,12 @@
 
 @import '../../shared.scss';
 
-$start-menu-secondary-color: green;
-
 .start-menu {
   display: flex;
   // color: black;
   // background-color: rgb(192, 192, 192);
   background-color: rgb(100, 100, 100);
-  margin-bottom: 5px;
+  // margin-bottom: 7px;
   // min-width: 200px;
   min-width: 20em;
   // min-height: 340px;
@@ -26,6 +24,18 @@ $start-menu-secondary-color: green;
   }
   .start-menu-container  {
     flex: 1 1;
+    .start-menu-item {
+      .start-menu-item-button {
+        padding: 3px;
+        box-shadow: 0 0;
+        display: flex;
+        justify-content: start;
+        width: 100%;
+        &:hover {
+          background-color: $start-menu-secondary-color;
+        }
+      }
+    }
     .start-menu-link {
       text-decoration: none;
       color: black;

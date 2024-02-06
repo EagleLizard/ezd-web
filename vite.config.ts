@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import vitePluginSvgr from 'vite-plugin-svgr';
 
 const rootDir = [
   __dirname,
@@ -21,6 +22,7 @@ export default defineConfig({
     // ...,
     react(),
     TanStackRouterVite(),
+    vitePluginSvgr(),
   ],
   assetsInclude: ['**/*.md'],
   build: {

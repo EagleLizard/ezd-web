@@ -1,0 +1,9 @@
+
+.ezd-web-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .ezd-web-page {
+    flex: 1 1;
+  }
+}

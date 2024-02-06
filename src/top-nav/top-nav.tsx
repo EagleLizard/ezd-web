@@ -3,9 +3,9 @@ import './top-nav.scss';
 import React, { useCallback, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { EzdButton } from '../components/ezd-button/ezd-button';
-import { ClickAwayListener, Popper } from '@material-ui/core';
-import { StartMenu } from './start-menu/start-menu';
-// import { AppBar, Button } from '@material-ui/core';
+import { ClickAwayListener, Popper } from '@mui/material';
+import { StartMenu, StartMenuItem } from './start-menu/start-menu';
+import { useWinCtx } from '../lib/win-context';
 
 type TopNavProps = {
 
@@ -20,6 +20,8 @@ export function TopNav(props: TopNavProps) {
   const onStartMenuBtnRefChange = useCallback((el: HTMLButtonElement) => {
     setStartMenuBtnEl(el);
   }, []);
+
+  const winCtx = useWinCtx();
 
   return (
     <div className="top-nav">
@@ -51,19 +53,23 @@ export function TopNav(props: TopNavProps) {
       <Popper
         open={startMenuOpen}
         anchorEl={startMenuBtnEl}
-        // placement="bottom"
       >
         <ClickAwayListener
           onClickAway={handleCLickAway}
         >
-          <StartMenu/>
+          <StartMenu
+            onClick={handleStartMenuItemClick}
+          />
         </ClickAwayListener>
       </Popper>
     </div>
   );
 
+  function handleStartMenuItemClick(startMenuItem: StartMenuItem) {
+    winCtx.startMenuSelect(startMenuItem);
+  }
+
   function handleCLickAway() {
-    console.log('clickaway');
     setStartMenuOpen(false);
   }
 

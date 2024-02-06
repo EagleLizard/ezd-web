@@ -4,9 +4,10 @@ import './ezd-web.scss';
 import React, { useEffect, useState } from 'react';
 
 import Markdown from 'react-markdown';
-import { Button, Card, createTheme, ThemeProvider } from '@material-ui/core';
+import { Button, Card, createTheme, ThemeProvider } from '@mui/material';
 import { EzdButton } from '../components/ezd-button/ezd-button';
 import { EzdCard } from '../components/ezd-card/ezd-card';
+import { useWinCtx } from '../lib/win-context';
 
 
 type EzdWebProps = {
@@ -16,6 +17,8 @@ type EzdWebProps = {
 export function EzdWeb(props: EzdWebProps) {
 
   const [ezdWebMarkdown, setEzdWebMarkdown] = useState<string | undefined>();
+
+  const winCtx = useWinCtx();
 
   useEffect(() => {
     (async () => {

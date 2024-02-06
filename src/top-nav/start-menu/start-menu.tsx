@@ -4,12 +4,28 @@ import { Link } from '@tanstack/react-router';
 import { EzdButton } from '../../components/ezd-button/ezd-button';
 
 
-type StartMenuItem = {
-
+export type StartMenuItem = {
+  label: string;
+  key: string;
 };
 
-type StartMenuProps = {
+const START_MENU_ITEMS: StartMenuItem[] = [
+  // {
+  //   label: 'Home',
+  //   key: 'home',
+  // },
+  // {
+  //   label: 'About',
+  //   key: 'about',
+  // },
+  {
+    label: 'Test Win',
+    key: 'test_win',
+  },
+];
 
+type StartMenuProps = {
+  onClick: (menuItem: StartMenuItem) => void;
 };
 
 export const StartMenu = React.forwardRef<HTMLDivElement, StartMenuProps>(
@@ -17,9 +33,31 @@ export const StartMenu = React.forwardRef<HTMLDivElement, StartMenuProps>(
     return (
       <div className="start-menu window" ref={ref}>
         <div className="left-banner">
-          
+
         </div>
         <div className="start-menu-container">
+          {START_MENU_ITEMS.map(startMenuItem => {
+            return (
+              <div
+                key={startMenuItem.key}
+                className="start-menu-item"
+              >
+                <EzdButton
+                  className="start-menu-item-button"
+                  onClick={() => {
+                    props.onClick(startMenuItem);
+                  }}
+                >
+                  <div className="start-menu-item-content">
+                    {startMenuItem.label}
+                  </div>
+                </EzdButton>
+                <div
+                  className="horizontal-divider"
+                />   
+              </div>
+            )
+          })}
           <div className="start-menu-item">
             <Link
               to="/"

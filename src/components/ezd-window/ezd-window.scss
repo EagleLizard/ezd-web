@@ -1,0 +1,24 @@
+
+@import '../../shared.scss';
+
+.ezd-window {
+  padding: 3px;
+  .title-bar {
+    display: flex;
+    .title-bar-text-container {
+      flex: 1 1;
+      cursor: grab;
+    }
+    .title-bar-controls {
+      .title-bar-control-btn {
+        height: 16px;
+        background-color: $win-surface-color;
+      }
+    }
+  }
+  .ezd-window-content {
+    padding: 5px;
+    @include inset-border;
+    background-color: $content-background-color;
+  }
+}

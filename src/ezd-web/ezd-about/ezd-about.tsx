@@ -3,7 +3,6 @@ import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import './ezd-about.scss';
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Paper } from '@material-ui/core';
 import { EzdCard } from '../../components/ezd-card/ezd-card';
 
 type EzdAboutProps = {

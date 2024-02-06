@@ -24,11 +24,14 @@
     "eslint-plugin-react": "^7.33.2",
     "sass": "^1.70.0",
     "typescript": "^5.3.3",
-    "vite": "^5.0.12"
+    "vite": "^5.0.12",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.7",
+    "@mui/material": "^5.15.7",
     "@tanstack/react-router": "^1.15.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

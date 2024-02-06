@@ -1,6 +1,6 @@
 
 import './ezd-card.scss';
-import { Card, CardProps } from '@material-ui/core';
+import { Card, CardProps } from '@mui/material';
 
 type EzdCardProps = {
 
