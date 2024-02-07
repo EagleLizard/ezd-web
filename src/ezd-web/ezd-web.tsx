@@ -1,11 +1,9 @@
 
 import './ezd-web.scss';
 // import ezdWebMarkdown from './ezd-web.md';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Markdown from 'react-markdown';
-import { Button, Card, createTheme, ThemeProvider } from '@mui/material';
-import { EzdButton } from '../components/ezd-button/ezd-button';
 import { EzdCard } from '../components/ezd-card/ezd-card';
 import { useWinCtx } from '../lib/win-context';
 

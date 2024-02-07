@@ -4,6 +4,7 @@ $content-background-color: rgb(50, 50, 50);
 $start-menu-secondary-color: green;
 
 $win-surface-color: rgb(192, 192, 192);
+$win-surface-color: rgb(160, 252, 78);
 
 @mixin ezd-page {
   padding: 1em;
@@ -29,8 +30,8 @@ $win-surface-color: rgb(192, 192, 192);
 }
 
 @mixin inset-border {
-  box-shadow: inset -1px -1px #ffffff , inset 1px 1px #808080 ,
-    inset -2px -2px #dfdfdf , inset 2px 2px #0a0a0a
+  box-shadow: inset -1px -1px var(--button-highlight) , inset 1px 1px var(--button-shadow) ,
+    inset -2px -2px var(--button-face) , inset 2px 2px var(--window-frame)
 }
 
 @mixin ezd-markdown-content {

@@ -9,14 +9,12 @@ import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { routeTree } from './routeTree.gen';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 
-import './external/98.css';
-
 const ezdTheme = createTheme({
   shape: {
     borderRadius: 0
   },
   palette: {
-    mode: 'dark',
+    // mode: 'dark',
     
   },
   components: {
@@ -28,7 +26,8 @@ const ezdTheme = createTheme({
         root: {
           textTransform: 'none',
           padding: 0,
-          color: 'initial'
+          color: 'initial',
+          backgroundColor: 'initial',
         }
       }
     },

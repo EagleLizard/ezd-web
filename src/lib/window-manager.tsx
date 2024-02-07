@@ -1,26 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Instance as PopperInstance } from '@popperjs/core'
+
 import { useWinCtx } from './win-context';
 import { StartMenuItem } from '../top-nav/start-menu/start-menu';
-import { Popper } from '@mui/material';
+import { Popper, PopperProps } from '@mui/material';
 import { EzdWindow } from '../components/ezd-window/ezd-window';
-
-let idCounter = 0;
-
-let xOrigin = 50;
-let yOrigin = 50;
-
-type VirtualElement = {
-  getBoundingClientRect: () => DOMRect;
-  x: number;
-  y: number;
-}
-
-export type WindowItem = {
-  id: number;
-  key: string;
-  title: string;
-  virtualEl: VirtualElement,
-}
+import { WindowItem } from '../models/window-item';
 
 export function WindowManager() {
   const winCtx = useWinCtx();
@@ -40,20 +25,26 @@ export function WindowManager() {
   return (
     <>
       {windows.map(window => {
+        const popperRef = React.createRef<PopperInstance>();
         return (
           <Popper
             open={true}
-            anchorEl={window.virtualEl}
+            anchorEl={window.virtualElement}
             key={window.id}
+            popperRef={popperRef}
           >
             <EzdWindow
               onClose={() => {
                 handleOnClose(window.id);
               }}
               windowItem={window}
+              popperRef={popperRef}
             >
               <div>
-                {window.title}
+                {(window.content === undefined)
+                  ? window.title
+                  : <window.content/>
+                }
               </div>
             </EzdWindow>
           </Popper>
@@ -62,7 +53,7 @@ export function WindowManager() {
     </>
   );
 
-  function handleOnClose(windowId: number) {
+  function handleOnClose(windowId: string) {
     let foundWindowIdx: number;
     let nextWindows: WindowItem[];
     foundWindowIdx = windows.findIndex(window => {
@@ -79,9 +70,7 @@ export function WindowManager() {
   function handleStartMenuSelect(startMenuItem: StartMenuItem) {
     let nextWindowItem: WindowItem;
     let nextWindowItems: WindowItem[];
-    // console.log(startMenuItem);
     nextWindowItem = getWindowItem(startMenuItem);
-    console.log(windows);
     nextWindowItems = [
       ...windows,
       nextWindowItem,
@@ -90,30 +79,14 @@ export function WindowManager() {
   }
 
   function getWindowItem(startMenuItem: StartMenuItem): WindowItem {
-    let virtualEl: VirtualElement = {
-      getBoundingClientRect: function() {
-        return {
-          width: 0,
-          height: 0,
-          top: this.x,
-          right: this.x,
-          bottom: this.y,
-          left: this.x,
-          x: this.x,
-          y: this.y,
-          toJSON: () => '',
-        };
-      },
-      x: xOrigin,
-      y: yOrigin,
-    };
-    yOrigin += 10;
-    xOrigin += 10;
-    return {
-      id: idCounter++,
-      key: startMenuItem.key,
-      title: startMenuItem.label,
-      virtualEl,
-    };
+    let windowItem: WindowItem;
+
+    windowItem =  WindowItem.init(
+      startMenuItem.key,
+      startMenuItem.label,
+      startMenuItem.content,
+    );
+
+    return windowItem;
   }
 }

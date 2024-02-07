@@ -2,22 +2,31 @@ import React from 'react';
 import './start-menu.scss';
 import { Link } from '@tanstack/react-router';
 import { EzdButton } from '../../components/ezd-button/ezd-button';
+import { EzdWeb } from '../../ezd-web/ezd-web';
 
 
 export type StartMenuItem = {
   label: string;
   key: string;
+  content?: React.FC;
 };
 
 const START_MENU_ITEMS: StartMenuItem[] = [
-  // {
-  //   label: 'Home',
-  //   key: 'home',
-  // },
-  // {
-  //   label: 'About',
-  //   key: 'about',
-  // },
+  {
+    label: 'Home',
+    key: 'home',
+    content: () => {
+      return (
+        <div>
+          <EzdWeb/>
+        </div>
+      )
+    }
+  },
+  {
+    label: 'About',
+    key: 'about',
+  },
   {
     label: 'Test Win',
     key: 'test_win',

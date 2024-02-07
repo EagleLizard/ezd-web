@@ -32,7 +32,6 @@ export function WinContextProvider(props: WinContextProviderProps) {
   ); 
 
   function startMenuSelect(startMenuItem: StartMenuItem) {
-    console.log({ startMenuItem });
     startMenuEventRegistry.trigger(startMenuItem);
   }
 

@@ -1,5 +1,32 @@
 
+@import './external/98.css';
+
+@import './shared.scss';
+
+:root {
+  --surface: #c0c0c0;
+  --surface: #{$win-surface-color};
+  // --window-frame: #0a0a0a;
+  --window-frame: #{darken($win-surface-color, 40%)};
+  --button-highlight: #ffffff;
+  --button-highlight: #{lighten($win-surface-color, 10%)};
+
+  // --button-face: #dfdfdf;
+  --button-face: #{lighten($win-surface-color, 20%)};
+  // --button-shadow: #808080;
+  --button-shadow: #{darken($win-surface-color, 30%)};
+
+  --border-raised-outer: inset -1px -1px var(--window-frame),
+    inset 1px 1px var(--button-highlight);
+  --border-raised-inner: inset -2px -2px var(--button-shadow),
+  inset 2px 2px var(--button-face);
+}
+
 button.ezd-button {
+  background-color: var(--surface);
+  &:hover {
+    background-color: var(--button-highlight);
+  }
 }
 
 body {
