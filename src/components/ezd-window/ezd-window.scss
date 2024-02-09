@@ -18,10 +18,28 @@
     }
   }
   .ezd-window-content {
-    padding: 5px;
+    // padding: 5px;
     @include inset-border;
     // background-color: var(--button-highlight);
     background-color: #fff;
     overflow: auto;
+    min-width: 100px;
+    min-height: 75px;
+    .ezd-window-content-container {
+      height: 100%;
+    }
+  }
+  .status-bar {
+    min-height: 20.5px;
+    display: flex;
+    justify-content: end;
+    .resize-box {
+      min-width: 20px;
+      // border: 1px solid;
+      cursor:nwse-resize;
+      .resize-icon {
+        opacity: 0.5;
+      }
+    }
   }
 }

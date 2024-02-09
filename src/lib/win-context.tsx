@@ -1,11 +1,12 @@
 import React from 'react';
 import { StartMenuItem } from '../top-nav/start-menu/start-menu';
 import { EventRegistry } from './event-registry';
+import { WindowItem } from '../models/window-item';
 
-type StartMenuSelectEventHandler = (data: StartMenuItem) => void;
+type StartMenuSelectEventHandler = (data: WindowItem) => void;
 
 export type WinCtx = {
-  startMenuSelect: (startMenuItem: StartMenuItem) => void;
+  startMenuSelect: (startMenuItem: WindowItem) => void;
   onStartMenuSelect: (callback: StartMenuSelectEventHandler) => () => void;
 };
 
@@ -18,7 +19,7 @@ const WinContext = React.createContext<WinCtx | undefined>(undefined);
 
 export function WinContextProvider(props: WinContextProviderProps) {
 
-  const startMenuEventRegistry = new EventRegistry<StartMenuItem, void>(false);
+  const startMenuEventRegistry = new EventRegistry<WindowItem, void>(false);
 
   const winCtx: WinCtx = {
     startMenuSelect,
@@ -31,7 +32,7 @@ export function WinContextProvider(props: WinContextProviderProps) {
     </WinContext.Provider>
   ); 
 
-  function startMenuSelect(startMenuItem: StartMenuItem) {
+  function startMenuSelect(startMenuItem: WindowItem) {
     startMenuEventRegistry.trigger(startMenuItem);
   }
 

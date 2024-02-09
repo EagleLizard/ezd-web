@@ -253,32 +253,37 @@
 }
 
 .title-bar-controls .button-98[aria-label="Minimize"] {
-  background-image: svg-load("./icon/minimize.svg");
+  /* background-image: svg-load("./icon/minimize.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="6" height="2" viewBox="0 0 6 2" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="2" fill="black"/></svg>');
   background-repeat: no-repeat;
   background-position: bottom 3px left 4px;
 }
 
 .title-bar-controls .button-98[aria-label="Maximize"] {
-  background-image: svg-load("./icon/maximize.svg");
+  /* background-image: svg-load("./icon/maximize.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 0H0V2V8V9H1H8H9V8V2V0ZM8 2H1V8H8V2Z" fill="black"/></svg>');
   background-repeat: no-repeat;
   background-position: top 2px left 3px;
 }
 
 .title-bar-controls .button-98[aria-label="Restore"] {
-  background-image: svg-load("./icon/restore.svg");
+  /* background-image: svg-load("./icon/restore.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" width="6" height="2" fill="black"/><rect x="7" y="2" width="1" height="4" fill="black"/><rect x="2" y="2" width="1" height="1" fill="black"/><rect x="6" y="5" width="1" height="1" fill="black"/><rect y="3" width="6" height="2" fill="black"/><rect x="5" y="5" width="1" height="4" fill="black"/><rect y="5" width="1" height="4" fill="black"/><rect x="1" y="8" width="4" height="1" fill="black"/></svg>');
   background-repeat: no-repeat;
   background-position: top 2px left 3px;
 }
 
 .title-bar-controls .button-98[aria-label="Help"] {
-  background-image: svg-load("./icon/help.svg");
+  /* background-image: svg-load("./icon/help.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="1" width="2" height="2" fill="black"/><rect x="1" width="4" height="1" fill="black"/><rect x="4" y="1" width="2" height="2" fill="black"/><rect x="3" y="3" width="2" height="1" fill="black"/><rect x="2" y="4" width="2" height="2" fill="black"/><rect x="2" y="7" width="2" height="2" fill="black"/></svg>');
   background-repeat: no-repeat;
   background-position: top 2px left 5px;
 }
 
 .title-bar-controls .button-98[aria-label="Close"] {
   margin-left: 2px;
-  background-image: svg-load("./icon/close.svg");
+  /* background-image: svg-load("./icon/close.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H1H2V1H3V2H4H5V1H6V0H7H8V1H7V2H6V3H5V4H6V5H7V6H8V7H7H6V6H5V5H4H3V6H2V7H1H0V6H1V5H2V4H3V3H2V2H1V1H0V0Z" fill="black"/></svg>');
   background-repeat: no-repeat;
   background-position: top 3px left 4px;
 }
@@ -301,7 +306,8 @@
 }
 
 .fieldset-98 {
-  border-image: svg-load("./icon/groupbox-border.svg") 2;
+  /* border-image: svg-load("./icon/groupbox-border.svg") 2; */
+  border-image: url('data:image/svg+xml,<svg width="5" height="5" viewBox="0 0 5 5" fill="grey" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H5V5H0V2H2V3H3V2H0" fill="white" /><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H4V4H0V1H1V3H3V1H0" fill="%23808080" /></svg>') 2;
   padding: calc(2 * var(--border-width) + var(--element-spacing));
   padding-block-start: var(--element-spacing);
   margin: 0;
@@ -369,11 +375,13 @@
   width: var(--radio-width);
   height: var(--radio-width);
   margin-right: var(--radio-label-spacing);
-  background: svg-load("./icon/radio-border.svg");
+  /* background: svg-load("./icon/radio-border.svg"); */
+  background: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0H4V1H2V2H1V4H0V8H1V10H2V8H1V4H2V2H4V1H8V2H10V1H8V0Z" fill="%23808080"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1H4V2H2V3V4H1V8H2V9H3V8H2V4H3V3H4V2H8V3H10V2H8V1Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 3H10V4H9V3ZM10 8V4H11V8H10ZM8 10V9H9V8H10V9V10H8ZM4 10V11H8V10H4ZM4 10V9H2V10H4Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 2H10V4H11V8H10V10H8V11H4V10H2V11H4V12H8V11H10V10H11V8H12V4H11V2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2H8V3H9V4H10V8H9V9H8V10H4V9H3V8H2V4H3V3H4V2Z" fill="white"/></svg>');
 }
 
 .input-98[type="radio"]:active + .label-98::before {
-  background: svg-load("./icon/radio-border-disabled.svg");
+  /* background: svg-load("./icon/radio-border-disabled.svg"); */
+  background: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0H4V1H2V2H1V4H0V8H1V10H2V8H1V4H2V2H4V1H8V2H10V1H8V0Z" fill="%23808080"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1H4V2H2V3V4H1V8H2V9H3V8H2V4H3V3H4V2H8V3H10V2H8V1Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 3H10V4H9V3ZM10 8V4H11V8H10ZM8 10V9H9V8H10V9V10H8ZM4 10V11H8V10H4ZM4 10V9H2V10H4Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 2H10V4H11V8H10V10H8V11H4V10H2V11H4V12H8V11H10V10H11V8H12V4H11V2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2H8V3H9V4H10V8H9V9H8V10H4V9H3V8H2V4H3V3H4V2Z" fill="%23C0C0C0"/></svg>');
 }
 
 .input-98[type="radio"]:checked + .label-98::after {
@@ -384,7 +392,8 @@
   top: var(--radio-dot-top);
   left: var(--radio-dot-left);
   position: absolute;
-  background: svg-load("./icon/radio-dot.svg");
+  /* background: svg-load("./icon/radio-dot.svg"); */
+  background: url('data:image/svg+xml,<svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 0H1V1H0V2V3H1V4H3V3H4V2V1H3V0Z" fill="black"/></svg>');
 }
 
 .input-98[type="radio"]:focus + .label-98,
@@ -393,11 +402,13 @@
 }
 
 .input-98[type="radio"][disabled] + .label-98::before {
-  background: svg-load("./icon/radio-border-disabled.svg");
+  /* background: svg-load("./icon/radio-border-disabled.svg"); */
+  background: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0H4V1H2V2H1V4H0V8H1V10H2V8H1V4H2V2H4V1H8V2H10V1H8V0Z" fill="%23808080"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1H4V2H2V3V4H1V8H2V9H3V8H2V4H3V3H4V2H8V3H10V2H8V1Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 3H10V4H9V3ZM10 8V4H11V8H10ZM8 10V9H9V8H10V9V10H8ZM4 10V11H8V10H4ZM4 10V9H2V10H4Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 2H10V4H11V8H10V10H8V11H4V10H2V11H4V12H8V11H10V10H11V8H12V4H11V2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2H8V3H9V4H10V8H9V9H8V10H4V9H3V8H2V4H3V3H4V2Z" fill="%23C0C0C0"/></svg>');
 }
 
 .input-98[type="radio"][disabled]:checked + .label-98::after {
-  background: svg-load("./icon/radio-dot-disabled.svg");
+  /* background: svg-load("./icon/radio-dot-disabled.svg"); */
+  background: url('data:image/svg+xml,<svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 0H1V1H0V2V3H1V4H3V3H4V2V1H3V0Z" fill="%23808080"/></svg>');
 }
 
 .input-98[type="checkbox"] + .label-98 {
@@ -431,7 +442,8 @@
   left: calc(
     -1 * (var(--checkbox-total-width-precalc)) + var(--checkmark-left)
   );
-  background: svg-load("./icon/checkmark.svg");
+  /* background: svg-load("./icon/checkmark.svg"); */
+  background: url('data:image/svg+xml,<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z" fill="black"/></svg>');
 }
 
 .input-98[type="checkbox"][disabled] + .label-98::before {
@@ -439,7 +451,8 @@
 }
 
 .input-98[type="checkbox"][disabled]:checked + .label-98::after {
-  background: svg-load("./icon/checkmark-disabled.svg");
+  /* background: svg-load("./icon/checkmark-disabled.svg"); */
+  background: url('data:image/svg+xml,<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z" fill="%23808080"/></svg>');
 }
 
 .input-98[type="text"],
@@ -496,7 +509,8 @@
   -moz-appearance: none;
   position: relative;
   padding-right: 32px;
-  background-image: svg-load("./icon/button-down.svg");
+  /* background-image: svg-load("./icon/button-down.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H0V1V16H1V1H15V0Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1H1V15H2V2H14V1H2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H15H0V16H15V0H16V17Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 1H14V15H1V16H14H15V1Z" fill="%23808080"/><rect x="2" y="2" width="12" height="13" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z" fill="black"/></svg>');
   background-position: top 2px right 2px;
   background-repeat: no-repeat;
   border-radius: 0;
@@ -525,14 +539,16 @@
   -webkit-appearance: none;
   height: 21px;
   width: 11px;
-  background: svg-load("./icon/indicator-horizontal.svg");
+  /* background: svg-load("./icon/indicator-horizontal.svg"); */
+  background: url('data:image/svg+xml,<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V16H2V18H4V20H5V19H3V17H1V1H10V0Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1 1V16H2V17H3V18H4V19H6V18H7V17H8V16H9V1Z" fill="%23C0C7C8"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1H10V16H8V18H6V20H5V19H7V17H9Z" fill="%2387888F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10 0H11V16H9V18H7V20H5V21H6V19H8V17H10Z" fill="black"/></svg>');
   transform: translateY(-8px);
   box-shadow: none;
   border: none;
 }
 
 .input-98[type="range"].has-box-indicator::-webkit-slider-thumb {
-  background: svg-load("./icon/indicator-rectangle-horizontal.svg");
+  /* background: svg-load("./icon/indicator-rectangle-horizontal.svg"); */
+  background: url('data:image/svg+xml,<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V20H1V1H10V0Z" fill="white"/><rect x="1" y="1" width="8" height="18" fill="%23C0C7C8"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1H10V20H1V19H9Z" fill="%2387888F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10 0H11V21H0V20H10Z" fill="black"/></svg>');
   transform: translateY(-10px);
 }
 
@@ -541,12 +557,14 @@
   width: 11px;
   border: 0;
   border-radius: 0;
-  background: svg-load("./icon/indicator-horizontal.svg");
+  /* background: svg-load("./icon/indicator-horizontal.svg"); */
+  background: url('data:image/svg+xml,<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V16H2V18H4V20H5V19H3V17H1V1H10V0Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1 1V16H2V17H3V18H4V19H6V18H7V17H8V16H9V1Z" fill="%23C0C7C8"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1H10V16H8V18H6V20H5V19H7V17H9Z" fill="%2387888F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10 0H11V16H9V18H7V20H5V21H6V19H8V17H10Z" fill="black"/></svg>');
   transform: translateY(2px);
 }
 
 .input-98[type="range"].has-box-indicator::-moz-range-thumb {
-  background: svg-load("./icon/indicator-rectangle-horizontal.svg");
+  /* background: svg-load("./icon/indicator-rectangle-horizontal.svg"); */
+  background: url('data:image/svg+xml,<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V20H1V1H10V0Z" fill="white"/><rect x="1" y="1" width="8" height="18" fill="%23C0C7C8"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1H10V20H1V19H9Z" fill="%2387888F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10 0H11V21H0V20H10Z" fill="black"/></svg>');
   transform: translateY(0px);
 }
 
@@ -630,7 +648,8 @@
 }
 
 .select-98:active {
-  background-image: svg-load("./icon/button-down-active.svg");
+  /* background-image: svg-load("./icon/button-down-active.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H15H16V17H15H0V16V1V0ZM1 16H15V1H1V16Z" fill="%23808080"/><rect x="1" y="1" width="14" height="15" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 7H5V8H6V9H7V10H8V11H9V10H10V9H11V8H12V7Z" fill="black"/></svg>');
 }
 
 .a-98 {
@@ -766,7 +785,8 @@ summary:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background-image: svg-load("./icon/scrollbar-background.svg");
+  /* background-image: svg-load("./icon/scrollbar-background.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="2" height="2" viewBox="0 0 2 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 0H0V1H1V2H2V1H1V0Z" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 0H1V1H0V2H1V1H2V0Z" fill="white"/></svg>');
 }
 
 ::-webkit-scrollbar-thumb {
@@ -783,19 +803,23 @@ summary:focus {
 
 ::-webkit-scrollbar-button:vertical:start {
   height: 17px;
-  background-image: svg-load("./icon/button-up.svg");
+  /* background-image: svg-load("./icon/button-up.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H0V1V16H1V1H15V0Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1H1V15H2V2H14V1H2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H15H0V16H15V0H16V17Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 1H14V15H1V16H14H15V1Z" fill="%23808080"/><rect x="2" y="2" width="12" height="13" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 6H7V7H6V8H5V9H4V10H11V9H10V8H9V7H8V6Z" fill="black"/></svg>');
 }
 ::-webkit-scrollbar-button:vertical:end {
   height: 17px;
-  background-image: svg-load("./icon/button-down.svg");
+  /* background-image: svg-load("./icon/button-down.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H0V1V16H1V1H15V0Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1H1V15H2V2H14V1H2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H15H0V16H15V0H16V17Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 1H14V15H1V16H14H15V1Z" fill="%23808080"/><rect x="2" y="2" width="12" height="13" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z" fill="black"/></svg>');
 }
 ::-webkit-scrollbar-button:horizontal:start {
   width: 16px;
-  background-image: svg-load("./icon/button-left.svg");
+  /* background-image: svg-load("./icon/button-left.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H0V1V16H1V1H15V0Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1H1V15H2V2H14V1H2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H15H0V16H15V0H16V17Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 1H14V15H1V16H14H15V1Z" fill="%23808080"/><rect x="2" y="2" width="12" height="13" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 4H8V5H7V6H6V7H5V8H6V9H7V10H8V11H9V4Z" fill="black"/></svg>');
 }
 ::-webkit-scrollbar-button:horizontal:end {
   width: 16px;
-  background-image: svg-load("./icon/button-right.svg");
+  /* background-image: svg-load("./icon/button-right.svg"); */
+  background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H0V1V16H1V1H15V0Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1H1V15H2V2H14V1H2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H15H0V16H15V0H16V17Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 1H14V15H1V16H14H15V1Z" fill="%23808080"/><rect x="2" y="2" width="12" height="13" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7 4H6V11H7V10H8V9H9V8H10V7H9V6H8V5H7V4Z" fill="black"/></svg>');
 }
 
 .window[role=tabpanel] {
@@ -848,7 +872,8 @@ summary:focus {
 .sunken-panel {
   box-sizing: border-box;
   border: 2px groove transparent;
-  border-image: svg-load("./icon/sunken-panel-border.svg") 2;
+  /* border-image: svg-load("./icon/sunken-panel-border.svg") 2; */
+  border-image: url('data:image/svg+xml,<svg width="5" height="5" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg"><rect width="4" height="1" x="0" y="0" fill="%23808080"/><rect width="1" height="4" x="0" y="0" fill="%23808080"/><rect width="2" height="1" x="1" y="1" fill="%230a0a0a"/><rect width="1" height="2" x="1" y="1" fill="%230a0a0a"/><rect width="5" height="1" x="0" y="4" fill="%23fff"/><rect width="1" height="5" x="4" y="0" fill="%23fff"/><rect width="1" height="3" x="3" y="1" fill="%23dfdfdf"/><rect width="3" height="1" x="1" y="3" fill="%23dfdfdf"/></svg>') 2;
   overflow: auto;
   background-color: #fff;
 }

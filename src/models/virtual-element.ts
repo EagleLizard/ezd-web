@@ -1,5 +1,9 @@
 
 export class VirtualElement {
+
+  static xOrigin: number = 150;
+  static yOrigin: number = 150;
+
   private constructor(
     public getBoundingClientRect: () => DOMRect,
     public x: number,
@@ -41,6 +45,5 @@ export class VirtualElement {
     VirtualElement.yOrigin += 20;
   }
 
-  static xOrigin: number = 50;
-  static yOrigin: number = 50;
+  
 }

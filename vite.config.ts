@@ -1,3 +1,4 @@
+
 // vite.config.ts
 import { defineConfig } from 'vite'
 import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
@@ -24,7 +25,9 @@ export default defineConfig({
     TanStackRouterVite(),
     vitePluginSvgr(),
   ],
-  assetsInclude: ['**/*.md'],
+  assetsInclude: [
+    '**/*.md',
+  ],
   build: {
     sourcemap: true,
     outDir: outDir

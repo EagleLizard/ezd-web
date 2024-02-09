@@ -1,37 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './start-menu.scss';
 import { Link } from '@tanstack/react-router';
 import { EzdButton } from '../../components/ezd-button/ezd-button';
 import { EzdWeb } from '../../ezd-web/ezd-web';
+import { WindowItem } from '../../models/window-item';
+import { EzdAbout } from '../../ezd-web/ezd-about/ezd-about';
 
 
 export type StartMenuItem = {
-  label: string;
+  title: string;
   key: string;
   content?: React.FC;
 };
 
-const START_MENU_ITEMS: StartMenuItem[] = [
+const START_MENU_ITEMS: WindowItem[] = [
   {
-    label: 'Home',
+    title: 'Home',
     key: 'home',
     content: () => {
       return (
-        <div>
-          <EzdWeb/>
-        </div>
+        <EzdWeb/>
       )
     }
   },
   {
-    label: 'About',
+    title: 'About',
     key: 'about',
+    content: () => {
+      return (
+        <EzdAbout/>
+      );
+    },
   },
   {
-    label: 'Test Win',
+    title: 'Test Win',
     key: 'test_win',
   },
-];
+].map(startMenuItem => {
+  return WindowItem.init(
+    startMenuItem.key,
+    startMenuItem.title,
+    startMenuItem.content,
+  );
+});
 
 type StartMenuProps = {
   onClick: (menuItem: StartMenuItem) => void;
@@ -39,6 +50,12 @@ type StartMenuProps = {
 
 export const StartMenu = React.forwardRef<HTMLDivElement, StartMenuProps>(
   function StartMenu(props: StartMenuProps, ref) {
+    
+    // useEffect(() => {
+    //   props.onClick(START_MENU_ITEMS[0]);
+    //   // props.onClick(START_MENU_ITEMS[1]);
+    // }, []);
+
     return (
       <div className="start-menu window" ref={ref}>
         <div className="left-banner">
@@ -58,7 +75,7 @@ export const StartMenu = React.forwardRef<HTMLDivElement, StartMenuProps>(
                   }}
                 >
                   <div className="start-menu-item-content">
-                    {startMenuItem.label}
+                    {startMenuItem.title}
                   </div>
                 </EzdButton>
                 <div

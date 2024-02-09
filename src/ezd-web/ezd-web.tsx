@@ -51,13 +51,13 @@ export function EzdWeb(props: EzdWebProps) {
             etc
           </pre>
         </Card> */}
-        <EzdCard className="ezd-web-content-container">
+        <div className="ezd-web-content-container">
           <div className="ezd-markdown-content">
             <Markdown>
               {ezdWebMarkdown}
             </Markdown>
           </div>
-        </EzdCard>
+        </div>
       </div>
     </div>
   );

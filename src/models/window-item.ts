@@ -6,6 +6,7 @@ import { VirtualElement } from './virtual-element';
 export class WindowItem {
   public id: string;
   public virtualElement: VirtualElement;
+  public layer: number = -1;
   private constructor(
     public key: string,
     public title: string,
@@ -13,6 +14,7 @@ export class WindowItem {
   ){
     this.id = uuidv4();
     this.virtualElement = VirtualElement.init();
+    // this.layer = layer || -1;
   }
 
   static init(

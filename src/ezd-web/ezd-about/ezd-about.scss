@@ -1,12 +1,17 @@
 @import '../../shared.scss';
 
 .ezd-about {
-  @include ezd-page;
+  background-color: $content-background-color;
+  padding: 10px;
+  color: white;
+  height: 100%;
+  min-width: 150px;
   .ezd-about-content-container {
-    padding: 5px;
-    @include ezd-markdown; 
+    // overflow: auto;
+    // padding: 5px;
     .ezd-about-markdown {
-      @include ezd-markdown-content;
+      // display: inline-block;
+      // box-sizing: content-box;
     }
   }
 }

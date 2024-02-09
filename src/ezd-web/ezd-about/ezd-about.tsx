@@ -25,7 +25,7 @@ export function EzdAbout(props: EzdAboutProps) {
 
   return (
     <div className="ezd-about">
-      <EzdCard>
+      {/* <EzdCard> */}
         <div className="ezd-about-content-container">
           <div className="ezd-about-markdown">
             <Markdown rehypePlugins={[rehypeRaw]}>
@@ -33,7 +33,7 @@ export function EzdAbout(props: EzdAboutProps) {
             </Markdown>
           </div>
         </div>
-      </EzdCard>
+      {/* </EzdCard> */}
     </div>
   );
 

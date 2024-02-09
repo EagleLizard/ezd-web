@@ -33,9 +33,3 @@ $win-surface-color: rgb(160, 252, 78);
   box-shadow: inset -1px -1px var(--button-highlight) , inset 1px 1px var(--button-shadow) ,
     inset -2px -2px var(--button-face) , inset 2px 2px var(--window-frame)
 }
-
-@mixin ezd-markdown-content {
-  padding: 1em;
-  background-color: $content-background-color;
-  @include inset-border;
-}

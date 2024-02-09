@@ -8,7 +8,7 @@ type EzdCardProps = {
 
 export function EzdCard(props: EzdCardProps) {
   return (
-    <div className="ezd-card window">
+    <div className="ezd-card">
       <Card
         {...props}
       />
