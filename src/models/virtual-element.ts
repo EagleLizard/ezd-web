@@ -1,8 +1,14 @@
 
+
+type VirtualElementParams = {
+  x?: number;
+  y?: number;
+};
+
 export class VirtualElement {
 
   static xOrigin: number = 150;
-  static yOrigin: number = 150;
+  static yOrigin: number = 50;
 
   private constructor(
     public getBoundingClientRect: () => DOMRect,
@@ -12,8 +18,10 @@ export class VirtualElement {
     
   }
 
-  static init(): VirtualElement {
+  static init(virtualElementParams: VirtualElementParams): VirtualElement {
     let virtualElement: VirtualElement;
+    let x: number;
+    let y: number;
 
     let getBoundingClientRect = function (this: VirtualElement) {
       // console.log(this);
@@ -30,20 +38,38 @@ export class VirtualElement {
       };
     }
 
+    if(virtualElementParams.x === undefined) {
+      x = this.xOrigin;
+      VirtualElement.incrementOriginX();
+    } else {
+      x = virtualElementParams.x;
+    }
+    if(virtualElementParams.y === undefined) {
+      y = this.yOrigin;
+      VirtualElement.incrementOriginY();
+    } else {
+      y = virtualElementParams.y;
+    }
+
     virtualElement = new VirtualElement(
       getBoundingClientRect,
-      VirtualElement.xOrigin,
-      VirtualElement.yOrigin,
+      x,
+      y,
     );
-    VirtualElement.incrementOrigin();
 
     return virtualElement;
   }
 
-  static incrementOrigin() {
+  static incrementOriginX() {
     VirtualElement.xOrigin += 20;
+  }
+  static incrementOriginY() {
     VirtualElement.yOrigin += 20;
   }
+  // static incrementOrigin() {
+  //   VirtualElement.incrementOriginX();
+  //   VirtualElement.incrementOriginY();
+  // }
 
   
 }

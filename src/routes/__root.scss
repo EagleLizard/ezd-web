@@ -6,6 +6,10 @@
   .ezd-web-page {
     flex: 1 1;
     // background-color: silver;
-    background-color: rgb(58, 58, 58);
+    // background-color: rgb(58, 58, 58);
+    background: url('../assets/Clouds_\(Windows_95\).png') ;
+    background-size: cover;
+    filter: hue-rotate(100deg) saturate(0.8);
+
   }
 }

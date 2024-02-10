@@ -1,6 +1,7 @@
 @import '../../shared.scss';
 
 .ezd-about {
+  overflow: auto;
   background-color: $content-background-color;
   padding: 10px;
   color: white;

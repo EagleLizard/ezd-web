@@ -20,8 +20,8 @@ type EzdWindowProps = {
 
 export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
   function EzdWindow(props: EzdWindowProps, ref) {
-    const [width, setWidth] = useState<number>(200);
-    const [height, setHeight] = useState<number>(100);
+    const [width, setWidth] = useState<number>(props.windowItem.width);
+    const [height, setHeight] = useState<number>(props.windowItem.height);
 
     const relPos = useRef<{x: number, y: number}>();
 
@@ -48,7 +48,6 @@ export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
       <div
         ref={mergeRefs([
           ref,
-          // localRef,
           localRefCb,
         ])}
         className="ezd-window window"

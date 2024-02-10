@@ -11,9 +11,13 @@ export type StartMenuItem = {
   title: string;
   key: string;
   content?: React.FC;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
 };
 
-const START_MENU_ITEMS: WindowItem[] = [
+const baseStartMenuItems: StartMenuItem[] = [
   {
     title: 'Home',
     key: 'home',
@@ -21,7 +25,11 @@ const START_MENU_ITEMS: WindowItem[] = [
       return (
         <EzdWeb/>
       )
-    }
+    },
+    x: 100,
+    y: 100,
+    width: 150,
+    height: 100,
   },
   {
     title: 'About',
@@ -31,17 +39,29 @@ const START_MENU_ITEMS: WindowItem[] = [
         <EzdAbout/>
       );
     },
+    x: 200,
+    y: 200,
+    width: 250,
+    height: 200,
   },
   {
     title: 'Test Win',
     key: 'test_win',
   },
+];
+
+export const START_MENU_ITEMS: WindowItem[] = [
+  ...baseStartMenuItems,
 ].map(startMenuItem => {
-  return WindowItem.init(
-    startMenuItem.key,
-    startMenuItem.title,
-    startMenuItem.content,
-  );
+  return WindowItem.init({
+    key: startMenuItem.key,
+    title: startMenuItem.title,
+    content: startMenuItem.content,
+    x: startMenuItem.x,
+    y: startMenuItem.y,
+    width: startMenuItem.width,
+    height: startMenuItem.height,
+  });
 });
 
 type StartMenuProps = {

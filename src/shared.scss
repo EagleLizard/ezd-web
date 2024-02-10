@@ -1,10 +1,15 @@
 
 $text-color: rgb(34, 34, 34);
 $content-background-color: rgb(50, 50, 50);
-$start-menu-secondary-color: green;
 
-$win-surface-color: rgb(192, 192, 192);
-$win-surface-color: rgb(160, 252, 78);
+// $win-surface-color: rgb(192, 192, 192);
+// $win-surface-color: rgb(160, 252, 78);
+// $win-surface-color: rgb(116, 252, 78);
+$win-surface-color: rgb(78, 252, 113);
+
+// $start-menu-secondary-color: green;
+$start-menu-secondary-color: darken($win-surface-color, 40%);
+
 
 @mixin ezd-page {
   padding: 1em;

@@ -19,7 +19,15 @@
   --border-raised-outer: inset -1px -1px var(--window-frame),
     inset 1px 1px var(--button-highlight);
   --border-raised-inner: inset -2px -2px var(--button-shadow),
-  inset 2px 2px var(--button-face);
+    inset 2px 2px var(--button-face);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-face);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+}
+::-webkit-scrollbar-corner {
+  background: var(--button-face);
 }
 
 button.ezd-button {

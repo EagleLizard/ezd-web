@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Instance as PopperInstance } from '@popperjs/core'
 
 import { useWinCtx } from './win-context';
-import { StartMenuItem } from '../top-nav/start-menu/start-menu';
+import { START_MENU_ITEMS, StartMenuItem } from '../top-nav/start-menu/start-menu';
 import { Popper, PopperProps } from '@mui/material';
 import { EzdWindow } from '../components/ezd-window/ezd-window';
 import { WindowItem } from '../models/window-item';
@@ -15,7 +15,10 @@ const BASE_Z_INDEX = 1000;
 
 export function WindowManager() {
   const winCtx = useWinCtx();
-  const [windows, setWindows] = useState<WindowItem[]>([]);
+  const [windows, setWindows] = useState<WindowItem[]>([
+    START_MENU_ITEMS[0],
+    START_MENU_ITEMS[1],
+  ]);
 
   useEffect(() => {
     const startMenuEventUnregister = winCtx.onStartMenuSelect((startMenuItem) => {
@@ -128,11 +131,11 @@ export function WindowManager() {
   function getWindowItem(startMenuItem: StartMenuItem): WindowItem {
     let windowItem: WindowItem;
 
-    windowItem =  WindowItem.init(
-      startMenuItem.key,
-      startMenuItem.title,
-      startMenuItem.content,
-    );
+    windowItem =  WindowItem.init({
+      key: startMenuItem.key,
+      title: startMenuItem.title,
+      content: startMenuItem.content,
+    });
 
     return windowItem;
   }
