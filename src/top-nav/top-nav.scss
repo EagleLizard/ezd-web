@@ -20,4 +20,29 @@ div.top-nav {
     margin-right: 5px;
     margin-left: 5px;
   }
+  .tasks {
+    flex: 1 1;
+    display: flex;
+    .task {
+      flex-grow: 1;
+      max-width: 200px;
+      button.ezd-button {
+        width: 100%;
+        text-align: left;
+        .ezd-button-inner {
+          width: 100%;
+          padding-left: 10px;
+        }
+      }
+      &:not(:first-of-type) {
+        padding-left: 3px;
+      }
+      &.top-win {
+        button {
+          box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+          background-color: $win-surface-color-light;
+        }
+      }
+    }
+  }
 }

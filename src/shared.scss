@@ -9,6 +9,7 @@ $win-surface-color: rgb(78, 252, 113);
 
 // $start-menu-secondary-color: green;
 $start-menu-secondary-color: darken($win-surface-color, 40%);
+$win-surface-color-light: lighten($win-surface-color, 15%);
 
 
 @mixin ezd-page {

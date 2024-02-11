@@ -3,6 +3,8 @@
 
 @import './shared.scss';
 
+$scrollbar-button-bg-color: $win-surface-color-light;
+
 :root {
   --surface: #c0c0c0;
   --surface: #{$win-surface-color};
@@ -22,12 +24,34 @@
     inset 2px 2px var(--button-face);
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--button-face);
-  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
-}
-::-webkit-scrollbar-corner {
-  background: var(--button-face);
+::-webkit-scrollbar-button {
+  &:vertical {
+    &:start {
+      background-image: url('./assets/icon/button-up.svg');
+    }
+    &:end {
+      background-image: url('./assets//icon/button-down.svg');
+    }
+  }
+  &:horizontal {
+    &:start {
+      background-image: url('./assets/icon/button-left.svg');
+    }
+    &:end {
+      background-image: url('./assets/icon/button-right.svg');
+    }
+  }
+  &:vertical, &:horizontal {
+    &:start, &:end {
+      height: 17px;
+      background-color: $scrollbar-button-bg-color;
+      box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+      &:not(:disabled):active {
+        box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+        text-shadow: 1px 1px var(--text-color);
+      }
+    }
+  }
 }
 
 button.ezd-button {

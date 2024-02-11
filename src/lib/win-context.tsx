@@ -1,13 +1,18 @@
-import React from 'react';
-import { StartMenuItem } from '../top-nav/start-menu/start-menu';
+import React, { useEffect, useState } from 'react';
+import { START_MENU_ITEMS, StartMenuItem } from '../top-nav/start-menu/start-menu';
 import { EventRegistry } from './event-registry';
 import { WindowItem } from '../models/window-item';
+import { INITIAL_WINDOW_ITEMS } from './window-manager';
 
 type StartMenuSelectEventHandler = (data: WindowItem) => void;
 
 export type WinCtx = {
   startMenuSelect: (startMenuItem: WindowItem) => void;
   onStartMenuSelect: (callback: StartMenuSelectEventHandler) => () => void;
+  openWindowState: [
+    WindowItem[],
+    (windowItems: WindowItem[]) => void,
+  ],
 };
 
 type WinContextProviderProps = {
@@ -18,13 +23,28 @@ const WinContext = React.createContext<WinCtx | undefined>(undefined);
 
 
 export function WinContextProvider(props: WinContextProviderProps) {
+  let [openWindows, setOpenWindows] = useState<WindowItem[]>([
+    ...INITIAL_WINDOW_ITEMS,
+  ]);
 
   const startMenuEventRegistry = new EventRegistry<WindowItem, void>(false);
 
   const winCtx: WinCtx = {
     startMenuSelect,
     onStartMenuSelect: registerStartMenuEventHandler,
+    openWindowState: [
+      openWindows,
+      (windowItems) => {
+        setOpenWindows(windowItems);
+      }
+    ]
   };
+
+  useEffect(() => {
+    console.log({openWindows});
+  }, [
+    openWindows
+  ]);
 
   return (
     <WinContext.Provider value={winCtx}>

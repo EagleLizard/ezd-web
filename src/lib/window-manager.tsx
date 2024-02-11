@@ -13,12 +13,18 @@ import { EzdAbout } from '../ezd-web/ezd-about/ezd-about';
 
 const BASE_Z_INDEX = 1000;
 
+export const INITIAL_WINDOW_ITEMS = [
+  START_MENU_ITEMS[2],
+  START_MENU_ITEMS[0],
+  START_MENU_ITEMS[1],
+].map((initialWinItem, idx) => {
+  initialWinItem.layer = idx + 1;
+  return initialWinItem;
+});
+
 export function WindowManager() {
   const winCtx = useWinCtx();
-  const [windows, setWindows] = useState<WindowItem[]>([
-    START_MENU_ITEMS[0],
-    START_MENU_ITEMS[1],
-  ]);
+  const [windows, setWindows] = winCtx.openWindowState;
 
   useEffect(() => {
     const startMenuEventUnregister = winCtx.onStartMenuSelect((startMenuItem) => {
@@ -85,20 +91,22 @@ export function WindowManager() {
       Update all windows in front of the current window
         to have layer - 1
       Update current window layer to top layer
-      */
-     let frontWindows: WindowItem[];
-     frontWindows = windows.filter(win => {
-        return win.layer > targetWindow.layer;
-     });
-     frontWindows.forEach(frontWindow => {
+    */
+    let frontWindows: WindowItem[];
+    frontWindows = windows.filter(win => {
+      return win.layer > targetWindow.layer;
+    });
+    frontWindows.forEach(frontWindow => {
       frontWindow.layer = frontWindow.layer - 1;
-     });
+    });
 
-     targetWindow.layer = topLayer;
+    targetWindow.layer = topLayer;
 
-     setWindows([
+    setWindows([
       ...windows,
-     ]);
+    ]);
+    //  $e.preventDefault();
+    //  $e.stopPropagation();
   }
 
   function handleOnClose(windowId: string) {

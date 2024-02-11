@@ -254,14 +254,16 @@
 
 .title-bar-controls .button-98[aria-label="Minimize"] {
   /* background-image: svg-load("./icon/minimize.svg"); */
-  background-image: url('data:image/svg+xml,<svg width="6" height="2" viewBox="0 0 6 2" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="2" fill="black"/></svg>');
+  /* background-image: url('data:image/svg+xml,<svg width="6" height="2" viewBox="0 0 6 2" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="2" fill="black"/></svg>'); */
+  background-image: svg-load("./icon/minimize.svg");
   background-repeat: no-repeat;
   background-position: bottom 3px left 4px;
 }
 
 .title-bar-controls .button-98[aria-label="Maximize"] {
   /* background-image: svg-load("./icon/maximize.svg"); */
-  background-image: url('data:image/svg+xml,<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 0H0V2V8V9H1H8H9V8V2V0ZM8 2H1V8H8V2Z" fill="black"/></svg>');
+  /* background-image: url('data:image/svg+xml,<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 0H0V2V8V9H1H8H9V8V2V0ZM8 2H1V8H8V2Z" fill="black"/></svg>'); */
+  background-image: url("./icon/maximize.svg");
   background-repeat: no-repeat;
   background-position: top 2px left 3px;
 }
@@ -275,7 +277,8 @@
 
 .title-bar-controls .button-98[aria-label="Help"] {
   /* background-image: svg-load("./icon/help.svg"); */
-  background-image: url('data:image/svg+xml,<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="1" width="2" height="2" fill="black"/><rect x="1" width="4" height="1" fill="black"/><rect x="4" y="1" width="2" height="2" fill="black"/><rect x="3" y="3" width="2" height="1" fill="black"/><rect x="2" y="4" width="2" height="2" fill="black"/><rect x="2" y="7" width="2" height="2" fill="black"/></svg>');
+  /* background-image: url('data:image/svg+xml,<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="1" width="2" height="2" fill="black"/><rect x="1" width="4" height="1" fill="black"/><rect x="4" y="1" width="2" height="2" fill="black"/><rect x="3" y="3" width="2" height="1" fill="black"/><rect x="2" y="4" width="2" height="2" fill="black"/><rect x="2" y="7" width="2" height="2" fill="black"/></svg>'); */
+  background-image: url("./icon/help.svg");
   background-repeat: no-repeat;
   background-position: top 2px left 5px;
 }
@@ -283,7 +286,8 @@
 .title-bar-controls .button-98[aria-label="Close"] {
   margin-left: 2px;
   /* background-image: svg-load("./icon/close.svg"); */
-  background-image: url('data:image/svg+xml,<svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H1H2V1H3V2H4H5V1H6V0H7H8V1H7V2H6V3H5V4H6V5H7V6H8V7H7H6V6H5V5H4H3V6H2V7H1H0V6H1V5H2V4H3V3H2V2H1V1H0V0Z" fill="black"/></svg>');
+  /* background-image: url('data:image/svg+xml,<svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H1H2V1H3V2H4H5V1H6V0H7H8V1H7V2H6V3H5V4H6V5H7V6H8V7H7H6V6H5V5H4H3V6H2V7H1H0V6H1V5H2V4H3V3H2V2H1V1H0V0Z" fill="black"/></svg>'); */
+  background-image: url("./icon/close.svg");
   background-repeat: no-repeat;
   background-position: top 3px left 4px;
 }
@@ -809,7 +813,8 @@ summary:focus {
 ::-webkit-scrollbar-button:vertical:end {
   height: 17px;
   /* background-image: svg-load("./icon/button-down.svg"); */
-  background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H0V1V16H1V1H15V0Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1H1V15H2V2H14V1H2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H15H0V16H15V0H16V17Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 1H14V15H1V16H14H15V1Z" fill="%23808080"/><rect x="2" y="2" width="12" height="13" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z" fill="black"/></svg>');
+  /* background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H0V1V16H1V1H15V0Z" fill="%23DFDFDF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1H1V15H2V2H14V1H2Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H15H0V16H15V0H16V17Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 1H14V15H1V16H14H15V1Z" fill="%23808080"/><rect x="2" y="2" width="12" height="13" fill="%23C0C0C0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z" fill="black"/></svg>'); */
+  background-image: url('./icon/button-down.svg');
 }
 ::-webkit-scrollbar-button:horizontal:start {
   width: 16px;

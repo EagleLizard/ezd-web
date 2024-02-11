@@ -5,6 +5,8 @@ import { EzdButton } from '../../components/ezd-button/ezd-button';
 import { EzdWeb } from '../../ezd-web/ezd-web';
 import { WindowItem } from '../../models/window-item';
 import { EzdAbout } from '../../ezd-web/ezd-about/ezd-about';
+import { TestWin } from '../../ezd-web/test-win/test-win';
+import { EzdHome } from '../../ezd-web/ezd-home/ezd-home';
 
 
 export type StartMenuItem = {
@@ -23,7 +25,7 @@ const baseStartMenuItems: StartMenuItem[] = [
     key: 'home',
     content: () => {
       return (
-        <EzdWeb/>
+        <EzdHome/>
       )
     },
     x: 100,
@@ -47,6 +49,13 @@ const baseStartMenuItems: StartMenuItem[] = [
   {
     title: 'Test Win',
     key: 'test_win',
+    content: () => {
+      return (
+        <TestWin/>
+      );
+    },
+    // x: 100,
+    y: 40,
   },
 ];
 
@@ -65,7 +74,7 @@ export const START_MENU_ITEMS: WindowItem[] = [
 });
 
 type StartMenuProps = {
-  onClick: (menuItem: StartMenuItem) => void;
+  onClick: (menuItem: WindowItem) => void;
 };
 
 export const StartMenu = React.forwardRef<HTMLDivElement, StartMenuProps>(
