@@ -7,10 +7,11 @@ import { VirtualElement } from './virtual-element';
 const DEFAULT_WINDOW_WIDTH = 200;
 const DEFAULT_WINDOW_HEIGHT = 150;
 
-type WindowItemParams = {
+export type WindowItemParams = {
   key: string;
   title: string;
   content?: WindowItem['content'];
+  layer?: number;
   x?: number;
   y?: number;
   width?: number;
@@ -20,14 +21,16 @@ type WindowItemParams = {
 export class WindowItem {
   public id: string;
   public virtualElement: VirtualElement;
-  public layer: number = -1;
+  public content?: React.FC;
+  public layer: number;
   public width: number = DEFAULT_WINDOW_WIDTH;
   public height: number = DEFAULT_WINDOW_HEIGHT;
-  public content?: React.FC;
+  public minimized: boolean = false;
   private constructor(
     public key: string,
     public title: string,
     content?: React.FC,
+    layer?: number,
     x?: number,
     y?: number,
     width?: number,
@@ -38,7 +41,7 @@ export class WindowItem {
       x,
       y,
     });
-    // this.layer = layer || -1;
+    this.layer = layer || -1;
     this.content = content;
     this.width = width ?? DEFAULT_WINDOW_WIDTH;
     this.height = height ?? DEFAULT_WINDOW_HEIGHT;
@@ -51,6 +54,7 @@ export class WindowItem {
       windowItemParams.key,
       windowItemParams.title,
       windowItemParams.content,
+      windowItemParams.layer,
       windowItemParams.x,
       windowItemParams.y,
       windowItemParams.width,

@@ -7,6 +7,7 @@ import { ClickAwayListener, Popper } from '@mui/material';
 import { StartMenu, StartMenuItem } from './start-menu/start-menu';
 import { useWinCtx } from '../lib/win-context';
 import { WindowItem } from '../models/window-item';
+import { TrayClock } from './tray-clock/tray-clock';
 
 type TopNavProps = {
 
@@ -55,17 +56,27 @@ export function TopNav(props: TopNavProps) {
       </div> */}
       <div className="tasks">
         {openWindows.map(win => {
+          let topLayer: number;
+          let isTopWindow: boolean;
+          let activeWin: boolean;
+          topLayer = winCtx.getTopVisibleLayer();
+          isTopWindow = win.layer === topLayer;
+          activeWin = winCtx.isWindowActive(win.id);
           return (
             <div
               key={win.id}
               className={[
                 'task',
-                (win.layer === (openWindows.reduce((acc, curr) => Math.max(acc, curr.layer), 0)))
+                (activeWin)
                   ? 'top-win'
                   : ''
               ].join(' ')}
             >
-              <EzdButton>
+              <EzdButton
+                onClick={() => {
+                  handleTaskClick(win);
+                }}
+              >
                 <div className="task-btn-inner">
                   {win.title}
                 </div>
@@ -73,6 +84,11 @@ export function TopNav(props: TopNavProps) {
             </div>
           )
         })}
+      </div>
+      <div className="ezd-tray-container status-bar">
+        <div className="ezd-tray status-bar-field">
+          <TrayClock/>
+        </div>
       </div>
       <Popper
         open={startMenuOpen}
@@ -90,6 +106,10 @@ export function TopNav(props: TopNavProps) {
       </Popper>
     </div>
   );
+
+  function handleTaskClick(win: WindowItem) {
+    winCtx.setWinMinimized(win.id, false);
+  }
 
   function handleStartMenuItemClick(startMenuItem: WindowItem) {
     winCtx.startMenuSelect(startMenuItem);

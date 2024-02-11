@@ -11,7 +11,7 @@ $scrollbar-button-bg-color: $win-surface-color-light;
   // --window-frame: #0a0a0a;
   --window-frame: #{darken($win-surface-color, 40%)};
   --button-highlight: #ffffff;
-  --button-highlight: #{lighten($win-surface-color, 10%)};
+  --button-highlight: #{lighten($win-surface-color, 25%)};
 
   // --button-face: #dfdfdf;
   --button-face: #{lighten($win-surface-color, 20%)};

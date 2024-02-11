@@ -12,8 +12,25 @@
     }
     .title-bar-controls {
       .title-bar-control-btn {
-        height: 16px;
+        display: flex;
+        flex-direction: column;
+        min-height: 16px;
+        min-width: 16px;
         // background-color: $win-surface-color;
+        .ezd-button-inner {
+          flex: 1 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .title-bar-btn {
+            padding-bottom: 2px;
+            padding-right: 1px;;
+            &.minimize-btn {
+              margin-top: auto;
+              margin-bottom: 35%;
+            }
+          }
+        }
       }
     }
   }

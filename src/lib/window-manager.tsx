@@ -39,14 +39,14 @@ export function WindowManager() {
 
   return (
     <>
-      {windows.map(window => {
+      {windows.map(win => {
         const popperRef = React.createRef<PopperInstance>();
         return (
           <Popper
-            open={true}
+            open={!win.minimized}
             className="ezd-window-popper"
-            anchorEl={window.virtualElement}
-            key={window.id}
+            anchorEl={win.virtualElement}
+            key={win.id}
             popperRef={popperRef}
             placement="right-start"
             modifiers={[
@@ -59,21 +59,22 @@ export function WindowManager() {
               },
             ]}
             style={{
-              zIndex: BASE_Z_INDEX + window.layer,
+              zIndex: BASE_Z_INDEX + win.layer,
             }}
           >
             <EzdWindow
               onClose={() => {
-                handleOnClose(window.id);
+                handleOnClose(win.id);
               }}
+              onMinimizeClick={handleMinimizeClick}
               onMouseDown={handleMouseDown}
-              windowItem={window}
+              windowItem={win}
               popperRef={popperRef}
             >
               <div className="ezd-window-content-container">
-                {(window.content === undefined)
-                  ? window.title
-                  : <window.content/>
+                {(win.content === undefined)
+                  ? win.title
+                  : <win.content/>
                 }
               </div>
             </EzdWindow>
@@ -83,30 +84,12 @@ export function WindowManager() {
     </>
   );
 
+  function handleMinimizeClick(windowId: string) {
+    winCtx.setWinMinimized(windowId, true);
+  }
+
   function handleMouseDown($e: React.MouseEvent<HTMLDivElement>, targetWindow: WindowItem) {
-    let topLayer: number;
-    topLayer = getTopLayer();
-    /*
-      find every window in front of the current window.
-      Update all windows in front of the current window
-        to have layer - 1
-      Update current window layer to top layer
-    */
-    let frontWindows: WindowItem[];
-    frontWindows = windows.filter(win => {
-      return win.layer > targetWindow.layer;
-    });
-    frontWindows.forEach(frontWindow => {
-      frontWindow.layer = frontWindow.layer - 1;
-    });
-
-    targetWindow.layer = topLayer;
-
-    setWindows([
-      ...windows,
-    ]);
-    //  $e.preventDefault();
-    //  $e.stopPropagation();
+    winCtx.toTopLayer(targetWindow.id);
   }
 
   function handleOnClose(windowId: string) {
@@ -124,16 +107,9 @@ export function WindowManager() {
   }
 
   function handleStartMenuSelect(startMenuItem: WindowItem) {
-    let nextWindowItem: WindowItem;
-    let nextWindowItems: WindowItem[];
-    nextWindowItem = getWindowItem(startMenuItem);
-    nextWindowItem.layer = getTopLayer() + 1;
-    nextWindowItems = [
-      ...windows,
-      nextWindowItem,
-    ];
-    console.log(nextWindowItem);
-    setWindows(nextWindowItems);
+    winCtx.launchWindow({
+      ...startMenuItem,
+    });
   }
 
   function getWindowItem(startMenuItem: StartMenuItem): WindowItem {
@@ -146,12 +122,5 @@ export function WindowManager() {
     });
 
     return windowItem;
-  }
-
-  function getTopLayer(): number {
-    let currTopLayer = windows.reduce((acc, curr) => {
-      return Math.max(acc, curr.layer ?? -1);
-    }, 0);
-    return currTopLayer;
   }
 }

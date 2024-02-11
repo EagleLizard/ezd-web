@@ -299,7 +299,7 @@
 }
 
 .status-bar-field {
-  box-shadow: inset -1px -1px #dfdfdf, inset 1px 1px #808080;
+  box-shadow: inset -1px -1px var(--button-highlight), inset 1px 1px var(--button-shadow);
   flex-grow: 1;
   padding: 2px 3px;
   margin: 0;

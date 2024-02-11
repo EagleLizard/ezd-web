@@ -1,6 +1,8 @@
 
 @import '../shared.scss';
 
+$nav-item-padding: 3px;
+
 div.top-nav {
   background: unset;
   border-bottom: 1px solid white;
@@ -15,8 +17,12 @@ div.top-nav {
     }
   }
   .top-nav-divider {
+    // border-left: 1px solid rgb(128, 128, 128);
     border-left: 1px solid rgb(128, 128, 128);
+    border-left: 1px solid var(--window-frame);
+    // border-left: 1px solid var(--button-shadow);
     border-right: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid var(--button-face);
     margin-right: 5px;
     margin-left: 5px;
   }
@@ -32,10 +38,13 @@ div.top-nav {
         .ezd-button-inner {
           width: 100%;
           padding-left: 10px;
+          .task-btn-inner {
+            
+          }
         }
       }
       &:not(:first-of-type) {
-        padding-left: 3px;
+        padding-left: $nav-item-padding;
       }
       &.top-win {
         button {
@@ -43,6 +52,16 @@ div.top-nav {
           background-color: $win-surface-color-light;
         }
       }
+    }
+  }
+  .ezd-tray-container {
+    padding-left: $nav-item-padding;
+    flex-grow: 0;
+    .ezd-tray {
+      height: 100%;
+      padding: 0 5px;
+      font-size: 0.875rem;
+      line-height: 1.75;
     }
   }
 }

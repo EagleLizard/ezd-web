@@ -4,6 +4,9 @@ import React, { RefObject, useCallback, useEffect, useRef, useState } from 'reac
 import { Instance as PopperInstance } from '@popperjs/core'
 
 import ResizeSVG from '../../external/resize-area.svg?react';
+import MaximizeSVG from '../../external/icon/maximize.svg?react';
+import MinimizeSVG from '../../external/icon/minimize.svg?react';
+import CloseSVG from '../../external/icon/close.svg?react';
 
 import { EzdButton } from '../ezd-button/ezd-button';
 import { WindowItem } from '../../models/window-item';
@@ -12,6 +15,7 @@ import { mergeRefs } from '../../lib/merge-refs';
 type EzdWindowProps = {
   children: JSX.Element | null;
   onClose: () => void;
+  onMinimizeClick: (windowId: string) => void;
   onMouseDown: ($e: React.MouseEvent<HTMLDivElement>, windowItem: WindowItem) => void;
 
   windowItem: WindowItem;
@@ -68,11 +72,31 @@ export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
           </div>
           <div className="title-bar-controls">
             <EzdButton
-              aria-label="Close"
+              // aria-label="Minimize"
+              className="title-bar-control-btn"
+              onClick={handleMinimizeClick}
+            >
+              <div className="title-bar-btn minimize-btn">
+                <MinimizeSVG/>
+              </div>
+            </EzdButton>
+            <EzdButton
+              // aria-label="Maximize"
+              className="title-bar-control-btn"
+              onClick={handleMaximizeClick}
+            >
+              <div className="title-bar-btn">
+                <MaximizeSVG/>
+              </div>
+            </EzdButton>
+            <EzdButton
+              // aria-label="Close"
               className="title-bar-control-btn"
               onClick={handleCloseClick}
             >
-              {/* <CloseSVG/> */}
+              <div className="title-bar-btn">
+                <CloseSVG/>
+              </div>
             </EzdButton>
           </div>
         </div>
@@ -100,6 +124,17 @@ export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
         </div>
       </div>
     );
+
+    function handleMinimizeClick() {
+      props.onMinimizeClick(props.windowItem.id);
+    }
+    function handleMaximizeClick() {
+      console.log(`Maximize ${props.windowItem.title}`);
+    }
+
+    function handleCloseClick() {
+      props.onClose();
+    }
 
     function handleMouseDown($e: React.MouseEvent<HTMLDivElement>) {
       props.onMouseDown($e, props.windowItem);
@@ -181,8 +216,6 @@ export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
       $e.stopPropagation();
     }
 
-    function handleCloseClick() {
-      props.onClose();
-    }
+    
   }
 )
