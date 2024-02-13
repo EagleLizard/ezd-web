@@ -3,10 +3,11 @@ import './start-menu.scss';
 import { Link } from '@tanstack/react-router';
 import { EzdButton } from '../../components/ezd-button/ezd-button';
 import { EzdWeb } from '../../ezd-web/ezd-web';
-import { WindowItem } from '../../models/window-item';
+import { BASE_Z_INDEX, WindowItem } from '../../models/window-item';
 import { EzdAbout } from '../../ezd-web/ezd-about/ezd-about';
 import { TestWin } from '../../ezd-web/test-win/test-win';
 import { EzdHome } from '../../ezd-web/ezd-home/ezd-home';
+import { useWinCtx } from '../../lib/win-context';
 
 
 export type StartMenuItem = {
@@ -79,14 +80,12 @@ type StartMenuProps = {
 
 export const StartMenu = React.forwardRef<HTMLDivElement, StartMenuProps>(
   function StartMenu(props: StartMenuProps, ref) {
-    
-    // useEffect(() => {
-    //   props.onClick(START_MENU_ITEMS[0]);
-    //   // props.onClick(START_MENU_ITEMS[1]);
-    // }, []);
 
     return (
-      <div className="start-menu window" ref={ref}>
+      <div
+        className="start-menu window"
+        ref={ref}
+      >
         <div className="left-banner">
 
         </div>

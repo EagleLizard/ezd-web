@@ -5,13 +5,9 @@ import { Instance as PopperInstance } from '@popperjs/core'
 
 import { useWinCtx } from './win-context';
 import { START_MENU_ITEMS, StartMenuItem } from '../top-nav/start-menu/start-menu';
-import { Popper, PopperProps } from '@mui/material';
+import { Popper } from '@mui/material';
 import { EzdWindow } from '../components/ezd-window/ezd-window';
-import { WindowItem } from '../models/window-item';
-import { EzdWeb } from '../ezd-web/ezd-web';
-import { EzdAbout } from '../ezd-web/ezd-about/ezd-about';
-
-const BASE_Z_INDEX = 1000;
+import { BASE_Z_INDEX, WindowItem } from '../models/window-item';
 
 export const INITIAL_WINDOW_ITEMS = [
   START_MENU_ITEMS[2],

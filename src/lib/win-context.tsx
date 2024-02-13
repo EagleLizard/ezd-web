@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { START_MENU_ITEMS, StartMenuItem } from '../top-nav/start-menu/start-menu';
 import { EventRegistry } from './event-registry';
 import { WindowItem, WindowItemParams } from '../models/window-item';
-import { INITIAL_WINDOW_ITEMS } from './window-manager';
+import { MdWindowItem, MdWindowParams } from '../models/windows/md-window';
 
 type StartMenuSelectEventHandler = (data: WindowItem) => void;
 
@@ -15,6 +15,9 @@ export type WinCtx = {
   getTopLayer: () => number;
   launchWindow: (winItem: WindowItemParams) => void;
   isWindowActive: (windowId: string) => boolean;
+
+  launchMdWin: (winParams: MdWindowParams) => void;
+
   openWindowState: [
     WindowItem[],
     (windowItems: WindowItem[]) => void,
@@ -30,7 +33,7 @@ const WinContext = React.createContext<WinCtx | undefined>(undefined);
 
 export function WinContextProvider(props: WinContextProviderProps) {
   let [openWindows, setOpenWindows] = useState<WindowItem[]>([
-    ...INITIAL_WINDOW_ITEMS,
+    // ...INITIAL_WINDOW_ITEMS,
   ]);
 
   const startMenuEventRegistry = new EventRegistry<WindowItem, void>(false);
@@ -44,6 +47,9 @@ export function WinContextProvider(props: WinContextProviderProps) {
     getTopLayer,
     launchWindow,
     isWindowActive,
+  
+    launchMdWin,
+
     openWindowState: [
       openWindows,
       (windowItems) => {
@@ -53,16 +59,41 @@ export function WinContextProvider(props: WinContextProviderProps) {
     
   };
 
-
-  // useEffect(() => {
-  //   console.log(openWindows);
-  // }, [openWindows])
-
   return (
     <WinContext.Provider value={winCtx}>
       {props.children}
     </WinContext.Provider>
   );
+
+
+  function launchMdWin(mdWinParams: MdWindowParams) {
+    let nextMdWin: MdWindowItem;
+    let openWindow: WindowItem | undefined;
+    openWindow = getOpenWindow(mdWinParams.key)
+    console.log('etc');
+    if(openWindow !== undefined) {
+      setWinMinimized(openWindow.id, false);
+      toTopLayer(openWindow.id);
+      return;
+    }
+    nextMdWin = MdWindowItem.init({
+      ...mdWinParams,
+      layer: getTopLayer() + 1,
+    });
+    setOpenWindows([
+      ...openWindows,
+      nextMdWin,
+    ]);
+  }
+
+  function getOpenWindow(winKey: string): WindowItem | undefined {
+    let foundWindow: WindowItem | undefined;
+    foundWindow = openWindows.find(openWin => {
+      return openWin.key === winKey;
+    });
+    return foundWindow;
+  }
+
   function isWindowActive(windowId: string) {
     let foundWin: WindowItem | undefined;
     foundWin = openWindows.find(win => {

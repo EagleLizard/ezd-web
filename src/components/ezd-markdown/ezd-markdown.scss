@@ -1,0 +1,10 @@
+
+@import '../../shared.scss';
+
+.ezd-markdown {
+  padding: 10px;
+  background-color: $md-content-background-color;
+  color: $md-contend-text-color;
+  min-height: 100%;
+  min-width: 150px;
+}

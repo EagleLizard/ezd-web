@@ -1,7 +1,8 @@
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './tray-clock.scss';
 import { useWinCtx } from '../../lib/win-context';
+import { EzdClock } from '../../ezd-web/ezd-clock/ezd-clock';
 
 const monthNames = [
   'Jan.',
@@ -54,11 +55,44 @@ export function TrayClock() {
     }
     doClockUpdate();
   }, [
-    setUpdateClock
+    updateClock
   ]);
 
   useEffect(() => {
     let nextTimeStr: string;
+    if(nowDate === undefined) {
+      return;
+    }
+    nextTimeStr = getTimeString(nowDate);
+    setTimeStr(nextTimeStr);
+  }, [
+    nowDate
+  ])
+
+  return (
+    <div
+      className="tray-clock"
+      onClick={handleClockClick}
+    >
+      {timeStr}
+    </div>
+  );
+
+  function handleClockClick() {
+    console.log('click');
+    winCtx.launchWindow({
+      key: 'clock',
+      title: 'clock',
+      content: () => {
+        return React.createElement(EzdClock)
+      },
+    })
+  }
+
+}
+
+function getTimeString(date: Date): string {
+  let nextTimeStr: string;
     let dateStr: string;
 
     let month: number;
@@ -76,22 +110,19 @@ export function TrayClock() {
     let secsStr: string;
 
     let ampm: string;
-    if(!nowDate) {
-      return;
-    }
 
-    year = nowDate.getFullYear();
+    year = date.getFullYear();
     yearStr = `${year}`;
-    month = nowDate.getMonth();
+    month = date.getMonth();
     monthStr = monthNames[month];
-    day = nowDate.getDate();
+    day = date.getDate();
     dayStr = `${day + 1}`;
 
-    hours = nowDate.getHours();
+    hours = date.getHours();
     hoursStr = `${hours}`;
-    mins = nowDate.getMinutes();
+    mins = date.getMinutes();
     minsStr = `${(mins < 10) ? '0' : ''}${mins}`;
-    secs = nowDate.getSeconds();
+    secs = date.getSeconds();
     secsStr = `${(secs < 10) ? '0' : ''}${secs}`;
 
     ampm = hours < 12
@@ -102,31 +133,5 @@ export function TrayClock() {
       // dateStr,
       `${hoursStr}:${minsStr}:${secsStr} ${ampm}`,
     ].join(' - ');
-    setTimeStr(nextTimeStr);
-  }, [
-    nowDate
-  ])
-
-  return (
-    <div
-      className="tray-clock"
-      onClick={handleClockClick}
-    >
-      {timeStr}
-    </div>
-  );
-
-  function handleClockClick() {
-    winCtx.launchWindow({
-      key: 'clock',
-      title: 'clock',
-      content: () => {
-        return (
-          <div>
-            <TrayClock/>
-          </div>
-        )
-      },
-    })
-  }
+    return nextTimeStr;
 }

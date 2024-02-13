@@ -6,21 +6,19 @@ import { EzdButton } from '../components/ezd-button/ezd-button';
 import { ClickAwayListener, Popper } from '@mui/material';
 import { StartMenu, StartMenuItem } from './start-menu/start-menu';
 import { useWinCtx } from '../lib/win-context';
-import { WindowItem } from '../models/window-item';
+import { BASE_Z_INDEX, WindowItem, WindowItemParams } from '../models/window-item';
 import { TrayClock } from './tray-clock/tray-clock';
+import { MdWindowParams } from '../models/windows/md-window';
 
 type TopNavProps = {
 
 };
 
 export function TopNav(props: TopNavProps) {
-
   const winCtx = useWinCtx();
+
   const [openWindows, ] = winCtx.openWindowState;
-
   const [startMenuOpen, setStartMenuOpen] = React.useState<boolean>(false);
-
-  // const startMenuBtnEl = React.useRef<HTMLButtonElement | null>(null);
   const [ startMenuBtnEl, setStartMenuBtnEl ] = useState<HTMLButtonElement>();
   const onStartMenuBtnRefChange = useCallback((el: HTMLButtonElement) => {
     setStartMenuBtnEl(el);
@@ -40,20 +38,6 @@ export function TopNav(props: TopNavProps) {
         </EzdButton>
       </div>
       <div className="top-nav-divider"/>
-      {/* <div className="top-nav-btn">
-        <Link to="/">
-          <EzdButton>
-            Home 
-          </EzdButton>
-        </Link>
-      </div>
-      <div className="top-nav-btn">
-        <Link to="/about">
-          <EzdButton>
-              About
-          </EzdButton>
-        </Link>
-      </div> */}
       <div className="tasks">
         {openWindows.map(win => {
           let topLayer: number;
@@ -93,6 +77,9 @@ export function TopNav(props: TopNavProps) {
       <Popper
         open={startMenuOpen}
         anchorEl={startMenuBtnEl}
+        style={{
+          zIndex: BASE_Z_INDEX + (winCtx.getTopLayer() + 1),
+        }}
       >
         <ClickAwayListener
           onClickAway={handleCLickAway}
@@ -112,7 +99,27 @@ export function TopNav(props: TopNavProps) {
   }
 
   function handleStartMenuItemClick(startMenuItem: WindowItem) {
-    winCtx.startMenuSelect(startMenuItem);
+    let mdWinParams: MdWindowParams;
+    switch(startMenuItem.key) {
+      case 'about':
+        mdWinParams = {
+          title: startMenuItem.title,
+          key: startMenuItem.key,
+          mdUrl: '/ezd-web/ezd-about/ezd-about',
+        };
+        winCtx.launchMdWin(mdWinParams);
+        break;
+      case 'home':
+        mdWinParams = {
+          title: startMenuItem.title,
+          key: startMenuItem.key,
+          mdUrl: '/ezd-web/ezd-home/ezd-home',
+        }
+        winCtx.launchMdWin(mdWinParams);
+        break;
+      default:
+        winCtx.startMenuSelect(startMenuItem);
+    }
   }
 
   function handleCLickAway() {

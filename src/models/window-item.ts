@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { VirtualElement } from './virtual-element';
 
+export const BASE_Z_INDEX = 1;
 
 const DEFAULT_WINDOW_WIDTH = 200;
 const DEFAULT_WINDOW_HEIGHT = 150;
@@ -19,6 +20,8 @@ export type WindowItemParams = {
 };
 
 export class WindowItem {
+  public key: string;
+  public title: string;
   public id: string;
   public virtualElement: VirtualElement;
   public content?: React.FC;
@@ -26,16 +29,19 @@ export class WindowItem {
   public width: number = DEFAULT_WINDOW_WIDTH;
   public height: number = DEFAULT_WINDOW_HEIGHT;
   public minimized: boolean = false;
-  private constructor(
-    public key: string,
-    public title: string,
-    content?: React.FC,
-    layer?: number,
-    x?: number,
-    y?: number,
-    width?: number,
-    height?: number,
-  ){
+  constructor(params: WindowItemParams) {
+    const {
+      key,
+      title,
+      content,
+      layer,
+      x,
+      y,
+      width,
+      height
+    } = params;
+    this.key = key;
+    this.title = title;
     this.id = uuidv4();
     this.virtualElement = VirtualElement.init({
       x,
@@ -50,16 +56,16 @@ export class WindowItem {
   static init(windowItemParams: WindowItemParams) {
     let windowItem: WindowItem;
 
-    windowItem = new WindowItem(
-      windowItemParams.key,
-      windowItemParams.title,
-      windowItemParams.content,
-      windowItemParams.layer,
-      windowItemParams.x,
-      windowItemParams.y,
-      windowItemParams.width,
-      windowItemParams.height,
-    );
+    windowItem = new WindowItem({
+      key: windowItemParams.key,
+      title: windowItemParams.title,
+      content: windowItemParams.content,
+      layer: windowItemParams.layer,
+      x: windowItemParams.x,
+      y: windowItemParams.y,
+      width: windowItemParams.width,
+      height: windowItemParams.height,
+    });
 
     return windowItem;
   }
