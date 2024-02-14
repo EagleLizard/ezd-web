@@ -16,7 +16,6 @@
         flex-direction: column;
         min-height: 16px;
         min-width: 16px;
-        // background-color: $win-surface-color;
         .ezd-button-inner {
           flex: 1 1;
           display: flex;
@@ -36,9 +35,9 @@
   }
   .ezd-window-content {
     padding: 2px;
-    @include inset-border;
+    // @include inset-border;
     // background-color: var(--button-highlight);
-    background-color: #fff;
+    // background-color: #fff;
     overflow: auto;
     min-width: 100px;
     min-height: 75px;

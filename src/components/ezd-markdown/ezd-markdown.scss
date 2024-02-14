@@ -2,6 +2,7 @@
 @import '../../shared.scss';
 
 .ezd-markdown {
+  @include inset-border;
   padding: 10px;
   background-color: $md-content-background-color;
   color: $md-contend-text-color;

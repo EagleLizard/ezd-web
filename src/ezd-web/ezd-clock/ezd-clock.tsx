@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import './ezd-clock.scss';
+import { getTimeString } from '../../lib/date-time-util';
 
 type EzdClockProps = {
 
@@ -14,7 +15,18 @@ export function EzdClock(props: EzdClockProps) {
 
   const doUpdate = useRef<boolean>();
 
-  const secsMod = nowDate.getSeconds() / 60;
+  // const secsMod = (nowDate.getSeconds() + (nowDate.getMilliseconds() / 1000)) / 60;
+  const secsMod = (nowDate.getSeconds()) / 60;
+  // const minsMod = (nowDate.getMinutes() + (secsMod )) / 60;
+  const minsMod = (nowDate.getMinutes()) / 60;
+  const hours = nowDate.getHours();
+  const twelveHours = (hours > 12)
+    ? hours - 12
+    : hours
+  ;
+  const hoursMod = (twelveHours) / 12;
+
+  const timeStr = getTimeString(nowDate);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -27,7 +39,7 @@ export function EzdClock(props: EzdClockProps) {
           return;
         }
         updateClock();
-      }, 500);
+      }, 50);
     }
     updateClock();
     return () => {
@@ -43,21 +55,52 @@ export function EzdClock(props: EzdClockProps) {
 
   return (
     <div className="ezd-clock">
-      <div>
-        {nowDate.valueOf()}
+      <div className="clock-details">
+        <div>
+          {nowDate.valueOf()}
+        </div>
+        <div>
+          {elapsedMs}
+        </div>
       </div>
-      <div>
-        {elapsedMs}
-      </div>
-      <div className="clock-parts-container">
-        <div
-          className="seconds-hand"
-          style={{
-            // width: 50,
-            // height: 50,
-            backgroundColor: 'pink',
-            transform: 'rotate(' + secsMod * 360 + 'deg)'
-        }}/>
+      <div className="time-section">
+        <div>
+          {timeStr}
+        </div>
+        <div className="clock-container">
+          <div className="clock-parts-container">
+            <div className="clock-part">
+              <div className="clock-face"/>
+            </div>
+            <div className="clock-part">
+              <div
+                className="minutes-hand"
+                style={{
+                  transform: 'rotate(' + minsMod * 360 + 'deg)',
+                }}
+              >
+                <div className="clock-hand-inner"/>
+              </div>
+              <div
+                className="hours-hand"
+                style={{
+                  transform: 'rotate(' + hoursMod * 360 + 'deg)',
+                }}
+              >
+                <div className="clock-hand-inner"/>
+              </div>
+              <div
+                className="seconds-hand"
+                style={{
+                  transform: 'rotate(' + secsMod * 360 + 'deg)',
+                }}
+              >
+                <div className="clock-hand-inner"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

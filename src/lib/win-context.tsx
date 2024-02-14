@@ -3,6 +3,8 @@ import { START_MENU_ITEMS, StartMenuItem } from '../top-nav/start-menu/start-men
 import { EventRegistry } from './event-registry';
 import { WindowItem, WindowItemParams } from '../models/window-item';
 import { MdWindowItem, MdWindowParams } from '../models/windows/md-window';
+import { INITIAL_WINDOW_ITEMS } from './window-manager';
+import { ClockWindowItem } from '../models/windows/clock-window';
 
 type StartMenuSelectEventHandler = (data: WindowItem) => void;
 
@@ -17,6 +19,7 @@ export type WinCtx = {
   isWindowActive: (windowId: string) => boolean;
 
   launchMdWin: (winParams: MdWindowParams) => void;
+  launchClockWin: () => void;
 
   openWindowState: [
     WindowItem[],
@@ -34,6 +37,20 @@ const WinContext = React.createContext<WinCtx | undefined>(undefined);
 export function WinContextProvider(props: WinContextProviderProps) {
   let [openWindows, setOpenWindows] = useState<WindowItem[]>([
     // ...INITIAL_WINDOW_ITEMS,
+    ClockWindowItem.init({
+      width: 300,
+      height: 200,
+      // layer: getTopLayer() + 1,
+    }),
+    MdWindowItem.init({
+      title: 'About',
+      key: 'about',
+      mdUrl: '/ezd-web/ezd-about/ezd-about',
+      width: 210,
+      height: 170,
+      x: 300,
+      y: 200,
+    }),
   ]);
 
   const startMenuEventRegistry = new EventRegistry<WindowItem, void>(false);
@@ -49,6 +66,7 @@ export function WinContextProvider(props: WinContextProviderProps) {
     isWindowActive,
   
     launchMdWin,
+    launchClockWin,
 
     openWindowState: [
       openWindows,
@@ -64,6 +82,28 @@ export function WinContextProvider(props: WinContextProviderProps) {
       {props.children}
     </WinContext.Provider>
   );
+
+
+  function launchClockWin() {
+    let nextClockWin: ClockWindowItem;
+    let openWindow: WindowItem | undefined;
+    openWindow = getOpenWindow('clock');
+    if(openWindow !== undefined) {
+      setWinMinimized(openWindow.id, false);
+      toTopLayer(openWindow.id);
+      return;
+    }
+    nextClockWin = ClockWindowItem.init({
+      // width: 300,
+      // height: 200,
+      layer: getTopLayer() + 1,
+    });
+
+    setOpenWindows([
+      ...openWindows,
+      nextClockWin,
+    ]);
+  }
 
 
   function launchMdWin(mdWinParams: MdWindowParams) {
