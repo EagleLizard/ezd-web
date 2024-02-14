@@ -45,7 +45,9 @@ export function WinContextProvider(props: WinContextProviderProps) {
     MdWindowItem.init({
       title: 'About',
       key: 'about',
-      mdUrl: '/ezd-web/ezd-about/ezd-about',
+      mdImportCb: async () => {
+        return (await import('../ezd-web/ezd-about/ezd-about.md?raw')).default;
+      },
       width: 210,
       height: 170,
       x: 300,

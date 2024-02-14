@@ -105,7 +105,10 @@ export function TopNav(props: TopNavProps) {
         mdWinParams = {
           title: startMenuItem.title,
           key: startMenuItem.key,
-          mdUrl: '/ezd-web/ezd-about/ezd-about',
+          mdImportCb: async () => {
+            const mdContent = (await import('../ezd-web/ezd-about/ezd-about.md?raw')).default;
+            return mdContent;
+          }
         };
         winCtx.launchMdWin(mdWinParams);
         break;
@@ -113,7 +116,10 @@ export function TopNav(props: TopNavProps) {
         mdWinParams = {
           title: startMenuItem.title,
           key: startMenuItem.key,
-          mdUrl: '/ezd-web/ezd-home/ezd-home',
+          mdImportCb: async () => {
+            const mdContent = (await import('../ezd-web/ezd-home/ezd-home.md?raw')).default;
+            return mdContent;
+          }
         }
         winCtx.launchMdWin(mdWinParams);
         break;

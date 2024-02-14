@@ -5,7 +5,7 @@ import Markdown, { Options as MarkdownOptions } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
 export type EzdMarkdownProps = {
-  mdUrl: string;
+  mdImportCb: () => Promise<string>;
 };
 
 export function EzdMarkdown(props: EzdMarkdownProps) {
@@ -31,7 +31,7 @@ export function EzdMarkdown(props: EzdMarkdownProps) {
   );
   async function init() {
     let nextMdContent: string;
-    nextMdContent = (await import(`${props.mdUrl}.md?raw`)).default;
+    nextMdContent = await props.mdImportCb();
     setMdContent(nextMdContent);
   }
 }

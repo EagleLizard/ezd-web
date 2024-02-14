@@ -3,7 +3,7 @@ import { EzdMarkdown, EzdMarkdownProps } from '../../components/ezd-markdown/ezd
 import { WindowItem, WindowItemParams } from '../window-item';
 
 export type MdWindowParams = {
-  mdUrl: string;
+  mdImportCb: EzdMarkdownProps['mdImportCb']
 } & Omit<WindowItemParams, 'content'>;
 
 export class MdWindowItem extends WindowItem {
@@ -19,7 +19,7 @@ export class MdWindowItem extends WindowItem {
     let content: React.FC;
     content = () => {
       return React.createElement(EzdMarkdown, {
-        mdUrl: params.mdUrl,
+        mdImportCb: params.mdImportCb,
       });
     };
     winItem = new MdWindowItem(params, content);

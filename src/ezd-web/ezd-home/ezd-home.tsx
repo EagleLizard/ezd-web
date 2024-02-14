@@ -34,8 +34,8 @@ export function EzdHome(props: EzdHomeProps) {
   );
 
   async function init() {
-    let ezdHomeMdStr: string;
-    ezdHomeMdStr = (await import('./ezd-home.md?raw')).default;
-    setEzdHomeMd(ezdHomeMdStr);
+    // let ezdHomeMdStr: string;
+    // ezdHomeMdStr = (await import('./ezd-home.md?raw')).default;
+    // setEzdHomeMd(ezdHomeMdStr);
   }
 }
