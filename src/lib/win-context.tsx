@@ -98,8 +98,8 @@ export function WinContextProvider(props: WinContextProviderProps) {
       return;
     }
     nextClockWin = ClockWindowItem.init({
-      // width: 300,
-      // height: 200,
+      width: 300,
+      height: 200,
       layer: getTopLayer() + 1,
     });
 
