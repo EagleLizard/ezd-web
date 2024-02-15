@@ -26,4 +26,15 @@ export class MdWindowItem extends WindowItem {
 
     return winItem;
   }
+
+  static getMdImportCb(url: string): MdWindowParams['mdImportCb'] {
+    return async () => {
+      let rawResp: Response;
+      let mdConent: string;
+      rawResp = await fetch(url);
+      mdConent = await rawResp.text();
+      console.log(mdConent);
+      return mdConent;
+    }
+  }
 }

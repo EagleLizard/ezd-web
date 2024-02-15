@@ -29,7 +29,7 @@ export function EzdClock(props: EzdClockProps) {
           return;
         }
         updateClock();
-      }, 100);
+      }, 50);
     }
     updateClock();
     return () => {
@@ -41,9 +41,6 @@ export function EzdClock(props: EzdClockProps) {
   return (
     <div className="ezd-clock">
       <div className="clock-details">
-        {/* <div>
-          {elapsedMs}
-        </div> */}
         <div className="month">
           {
             getDateString(nowDate)
@@ -53,6 +50,12 @@ export function EzdClock(props: EzdClockProps) {
       <div className="time-section">
         <div>
           {timeStr}
+        </div>
+        <div>
+          {elapsedMs}
+        </div>
+        <div>
+          {elapsedMs.toString(16).toUpperCase()}
         </div>
         <div className="clock-container">
           <ClockWidget

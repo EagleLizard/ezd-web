@@ -3,6 +3,16 @@
 
 .ezd-window {
   padding: 3px;
+
+  &:not(.active) {
+    .title-bar {
+      // background: linear-gradient(90deg, lighten($start-menu-secondary-color, 20%), var(--surface));
+      background: linear-gradient(90deg, desaturate(lighten($start-menu-secondary-color, 20%), 60%), var(--surface));
+      // background: linear-gradient(90deg, var(--dialog-gray), var(--surface));
+      // background: black;
+    }
+  }
+
   .title-bar {
     display: flex;
     background: linear-gradient(90deg, $start-menu-secondary-color, var(--surface));

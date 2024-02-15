@@ -8,7 +8,7 @@ import { StartMenu, StartMenuItem } from './start-menu/start-menu';
 import { useWinCtx } from '../lib/win-context';
 import { BASE_Z_INDEX, WindowItem, WindowItemParams } from '../models/window-item';
 import { TrayClock } from './tray-clock/tray-clock';
-import { MdWindowParams } from '../models/windows/md-window';
+import { MdWindowItem, MdWindowParams } from '../models/windows/md-window';
 
 type TopNavProps = {
 
@@ -105,10 +105,9 @@ export function TopNav(props: TopNavProps) {
         mdWinParams = {
           title: startMenuItem.title,
           key: startMenuItem.key,
-          mdImportCb: async () => {
-            const mdContent = (await import('../ezd-web/ezd-about/ezd-about.md?raw')).default;
-            return mdContent;
-          }
+          mdImportCb: MdWindowItem.getMdImportCb(
+            'https://raw.githubusercontent.com/EagleLizard/ezd-web/main/src/ezd-web/ezd-about/ezd-about.md'
+          ),
         };
         winCtx.launchMdWin(mdWinParams);
         break;
@@ -116,10 +115,13 @@ export function TopNav(props: TopNavProps) {
         mdWinParams = {
           title: startMenuItem.title,
           key: startMenuItem.key,
-          mdImportCb: async () => {
-            const mdContent = (await import('../ezd-web/ezd-home/ezd-home.md?raw')).default;
-            return mdContent;
-          }
+          // mdImportCb: async () => {
+          //   const mdContent = (await import('../ezd-web/ezd-home/ezd-home.md?raw')).default;
+          //   return mdContent;
+          // }
+          mdImportCb: MdWindowItem.getMdImportCb(
+            'https://raw.githubusercontent.com/EagleLizard/ezd-web/main/src/ezd-web/ezd-home/ezd-home.md'
+          ),
         }
         winCtx.launchMdWin(mdWinParams);
         break;

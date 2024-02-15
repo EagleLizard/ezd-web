@@ -66,6 +66,7 @@ export function WindowManager() {
               onMouseDown={handleMouseDown}
               windowItem={win}
               popperRef={popperRef}
+              active={winCtx.isWindowActive(win.id)}
             >
               <div className="ezd-window-content-container">
                 {(win.content === undefined)

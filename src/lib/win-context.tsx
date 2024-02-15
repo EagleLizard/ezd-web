@@ -33,25 +33,27 @@ type WinContextProviderProps = {
 
 const WinContext = React.createContext<WinCtx | undefined>(undefined);
 
+// MdWindowItem.getMdImportCb('https://raw.githubusercontent.com/EagleLizard/ezd-web/main/src/ezd-web/ezd-about/ezd-about.md');
+// MdWindowItem.getMdImportCb('../ezd-web/ezd-about/ezd-about.md?raw');
 
 export function WinContextProvider(props: WinContextProviderProps) {
   let [openWindows, setOpenWindows] = useState<WindowItem[]>([
     // ...INITIAL_WINDOW_ITEMS,
-    ClockWindowItem.init({
-      width: 300,
-      height: 200,
-      // layer: getTopLayer() + 1,
-    }),
+    // ClockWindowItem.init({
+    //   width: 300,
+    //   height: 200,
+    //   // layer: getTopLayer() + 1,
+    // }),
     MdWindowItem.init({
       title: 'About',
       key: 'about',
-      mdImportCb: async () => {
-        return (await import('../ezd-web/ezd-about/ezd-about.md?raw')).default;
-      },
+      mdImportCb: MdWindowItem.getMdImportCb(
+        'https://raw.githubusercontent.com/EagleLizard/ezd-web/main/src/ezd-web/ezd-about/ezd-about.md'
+      ),
       width: 210,
       height: 170,
-      x: 300,
-      y: 250,
+      x: 100,
+      y: 150,
     }),
   ]);
 

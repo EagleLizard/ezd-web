@@ -20,6 +20,7 @@ type EzdWindowProps = {
 
   windowItem: WindowItem;
   popperRef: React.RefObject<PopperInstance>;
+  active: boolean;
 };
 
 export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
@@ -54,7 +55,14 @@ export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
           ref,
           localRefCb,
         ])}
-        className="ezd-window window"
+        // className="ezd-window window"
+        className={[
+          'ezd-window',
+          'window',
+          (props.active)
+            ? 'active'
+            : ''
+        ].join(' ')}
         id={`ezd-window_${props.windowItem.id}`}
         onMouseDown={handleMouseDown}
         onResize={($e) => {

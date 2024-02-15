@@ -27,7 +27,6 @@ export const Route = createRootRoute({
           <div className="ezd-web-page">
             <Outlet />
           </div>
-          {/* <div> */}
           <WindowManager/>
           <TopNav/>
         </div>
