@@ -1,21 +1,17 @@
 
 @import '../../shared.scss';
 
-$hours-hand-bg-color: $start-menu-secondary-color;
-$minutes-hand-bg-color: $start-menu-secondary-color;
-$seconds-hand-bg-color: darken($start-menu-secondary-color, 10%);
-
-$clock-face-bg-color: lighten($win-surface-color-light, 5%);
-
 .ezd-clock {
   height: 100%;
   width: 100%;
   display: flex;
   .clock-details {
     flex: 1 1;
+    min-width: 114px;
   }
   .time-section {
     flex: 1 1;
+    min-width: 60px;
     // display: flex;
     // flex-direction: column;
     // width: 100%;
@@ -27,65 +23,6 @@ $clock-face-bg-color: lighten($win-surface-color-light, 5%);
       // height: 100%;
       padding: 10px;
       
-    }
-  }
-  .clock-parts-container {
-    transform: rotate(180deg);
-    aspect-ratio: 1/1;
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
-    .clock-part {
-      // aspect-ratio: 1/1;
-      position: absolute;
-      // bottom: 0;
-      // top: 0;
-      height: 100%;
-      width: 100%;
-      .seconds-hand,
-      .minutes-hand,
-      .hours-hand {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 50%;
-        // transform-origin: top center;
-        transform-origin: left top;
-
-        .clock-hand-inner {
-          background-color: white;
-          background-color: $start-menu-secondary-color;
-          width: 100%;
-          height: 100%;
-          clip-path: polygon(50% 0, 50% 100%, 0 25%);
-          transform: translateX(-50%);
-        }
-      }
-      .seconds-hand {
-        width: 6%;
-        .clock-hand-inner {
-          background-color: $seconds-hand-bg-color;
-        }
-      }
-      .minutes-hand {
-        width: 10%;
-        .clock-hand-inner {
-          background-color: $minutes-hand-bg-color;
-        }
-        
-      }
-      .hours-hand {
-        height: 40%;
-        width: 12%;
-        .clock-hand-inner {
-          background-color: $hours-hand-bg-color;
-        }
-      }
-      .clock-face {
-        height: 100%;
-        background-color: $clock-face-bg-color;
-        border-radius: 100%;
-      }
     }
   }
 }

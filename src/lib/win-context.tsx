@@ -51,7 +51,7 @@ export function WinContextProvider(props: WinContextProviderProps) {
       width: 210,
       height: 170,
       x: 300,
-      y: 200,
+      y: 250,
     }),
   ]);
 
@@ -112,7 +112,6 @@ export function WinContextProvider(props: WinContextProviderProps) {
     let nextMdWin: MdWindowItem;
     let openWindow: WindowItem | undefined;
     openWindow = getOpenWindow(mdWinParams.key)
-    console.log('etc');
     if(openWindow !== undefined) {
       setWinMinimized(openWindow.id, false);
       toTopLayer(openWindow.id);

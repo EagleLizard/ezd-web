@@ -145,7 +145,6 @@ export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
         // only respect left click
         return;
       }
-      console.log($e);
       setIsResizing(true);
       handleTitleBarMouseDown($e);
     }
@@ -153,15 +152,12 @@ export const EzdWindow = React.forwardRef<HTMLDivElement, EzdWindowProps>(
     function handleTitleBarMouseDown($e: React.MouseEvent<HTMLDivElement>) {
       let posX: number;
       let posY: number;
-      console.log($e.type);
+
       if($e.button !== 0) {
         // only respect left click
         return;
       }
-      console.log($e);
 
-      // posX = $e.pageX - props.windowItem.x;
-      // posY = $e.pageY - props.windowItem.y;
       let rect = localRef?.getBoundingClientRect();
       posX = $e.pageX - (rect?.x ?? 0);
       posY = $e.pageY - (rect?.y ?? 0);

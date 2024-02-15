@@ -61,10 +61,10 @@ export class VirtualElement {
   }
 
   static incrementOriginX() {
-    VirtualElement.xOrigin += 20;
+    VirtualElement.xOrigin += 10;
   }
   static incrementOriginY() {
-    VirtualElement.yOrigin += 20;
+    VirtualElement.yOrigin += 10;
   }
   // static incrementOrigin() {
   //   VirtualElement.incrementOriginX();
