@@ -6,14 +6,15 @@ import { ClockWidget } from './clock-widget/clock-widget';
 import { getDateString, getTimeString } from '../../lib/date-time-util';
 
 type EzdClockProps = {
-
+  initTimestamp: number;
 };
 
 export function EzdClock(props: EzdClockProps) {
   const [ nowDate, setNowDate ] = useState<Date>(new Date);
-  const [initTimestamp, ] = useState<number>(Date.now())
-
+  
   const doUpdate = useRef<boolean>();
+  
+  const initTimestamp = props.initTimestamp;
   
   const elapsedMs = nowDate.valueOf() - initTimestamp;
   const timeStr = getTimeString(nowDate);

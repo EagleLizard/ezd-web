@@ -10,7 +10,9 @@
   // min-width: 200px;
   min-width: 20em;
   // min-height: 340px;
-  min-height: 34em;
+  &.base-menu {
+    min-height: 34em;
+  }
   padding: 5px;
 
   .left-banner {
@@ -31,6 +33,14 @@
         display: flex;
         justify-content: start;
         width: 100%;
+        .ezd-button-inner {
+          width: 100%;
+          .start-menu-item-content {
+            display: flex;
+            // width: 100%;
+            justify-content: space-between;
+          }
+        }
         &:hover {
           background-color: $start-menu-secondary-color;
           color: white;

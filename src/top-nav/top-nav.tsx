@@ -4,7 +4,7 @@ import React, { useCallback, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { EzdButton } from '../components/ezd-button/ezd-button';
 import { ClickAwayListener, Popper } from '@mui/material';
-import { StartMenu, StartMenuItem } from './start-menu/start-menu';
+import { START_MENU_ITEMS, StartMenu, StartMenuItem } from './start-menu/start-menu';
 import { useWinCtx } from '../lib/win-context';
 import { BASE_Z_INDEX, WindowItem, WindowItemParams } from '../models/window-item';
 import { TrayClock } from './tray-clock/tray-clock';
@@ -19,7 +19,7 @@ export function TopNav(props: TopNavProps) {
 
   const [openWindows, ] = winCtx.openWindowState;
   const [startMenuOpen, setStartMenuOpen] = React.useState<boolean>(false);
-  const [ startMenuBtnEl, setStartMenuBtnEl ] = useState<HTMLButtonElement>();
+  const [ startMenuBtnEl, setStartMenuBtnEl ] = useState<HTMLButtonElement | null>(null);
   const onStartMenuBtnRefChange = useCallback((el: HTMLButtonElement) => {
     setStartMenuBtnEl(el);
   }, []);
@@ -74,23 +74,14 @@ export function TopNav(props: TopNavProps) {
           <TrayClock/>
         </div>
       </div>
-      <Popper
-        open={startMenuOpen}
-        anchorEl={startMenuBtnEl}
-        style={{
-          zIndex: BASE_Z_INDEX + (winCtx.getTopLayer() + 1),
-        }}
-      >
-        <ClickAwayListener
+        <StartMenu
+          menuItems={START_MENU_ITEMS}
+          open={startMenuOpen}
+          isRoot={true}
+          anchorEl={startMenuBtnEl}
           onClickAway={handleCLickAway}
-          mouseEvent="onMouseDown"
-          touchEvent="onTouchStart"
-        >
-          <StartMenu
-            onClick={handleStartMenuItemClick}
-          />
-        </ClickAwayListener>
-      </Popper>
+          onClick={handleStartMenuItemClick}
+        />
     </div>
   );
 

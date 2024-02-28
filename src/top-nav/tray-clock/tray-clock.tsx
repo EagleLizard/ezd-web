@@ -13,6 +13,8 @@ export function TrayClock() {
 
   const [updateClock, setUpdateClock] = useState<boolean>(true);
   const [nowDate, setNowDate] = useState<Date>();
+  // const [initTimestamp, ] = useState<number>(Date.now());
+  const [initTimestamp, ] = useState<number>(1000188000000);
 
   const [ timeStr, setTimeStr ] = useState<string>();
 
@@ -73,7 +75,9 @@ export function TrayClock() {
     //     return React.createElement(EzdClock)
     //   },
     // });
-    winCtx.launchClockWin();
+    winCtx.launchClockWin({
+      initTimestamp,
+    });
   }
 
 }

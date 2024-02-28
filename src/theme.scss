@@ -6,22 +6,31 @@
 $scrollbar-button-bg-color: $win-surface-color-light;
 
 :root {
-  --surface: #c0c0c0;
+  --text-color: #{$text-color};
+  // --surface: #c0c0c0;
   --surface: #{$win-surface-color};
   // --window-frame: #0a0a0a;
-  --window-frame: #{darken($win-surface-color, 40%)};
-  --button-highlight: #ffffff;
-  --button-highlight: #{lighten($win-surface-color, 25%)};
+  --window-frame: #{$win-frame};
+  
+  // --button-highlight: #ffffff;
+  --button-highlight: #{$button-highlight};
+
+  --button-highlight: #{$button-highlight};
 
   // --button-face: #dfdfdf;
-  --button-face: #{lighten($win-surface-color, 20%)};
+  --button-face: #{$button-face};
   // --button-shadow: #808080;
-  --button-shadow: #{darken($win-surface-color, 30%)};
+  --button-shadow: #{$button-shadow};
 
-  --border-raised-outer: inset -1px -1px var(--window-frame),
-    inset 1px 1px var(--button-highlight);
-  --border-raised-inner: inset -2px -2px var(--button-shadow),
-    inset 2px 2px var(--button-face);
+  // --border-raised-outer: inset -1px -1px var(--window-frame),
+  //   inset 1px 1px var(--button-highlight);
+  --border-raised-outer: #{$border-raised-outer};
+
+  // --border-raised-inner: inset -2px -2px var(--button-shadow),
+  //   inset 2px 2px var(--button-face);
+  --border-raised-inner: #{$border-raised-inner};
+
+  --border-sunken-inner: #{$border-sunken-inner};
 }
 
 ::-webkit-scrollbar-button {
@@ -45,19 +54,21 @@ $scrollbar-button-bg-color: $win-surface-color-light;
     &:start, &:end {
       height: 17px;
       background-color: $scrollbar-button-bg-color;
-      box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+      // box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+      box-shadow: $border-raised-outer, $border-raised-inner;
       &:not(:disabled):active {
-        box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
-        text-shadow: 1px 1px var(--text-color);
+        // box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+        box-shadow: $border-raised-outer, $border-sunken-inner;
+        text-shadow: 1px 1px $text-color;
       }
     }
   }
 }
 
 button.ezd-button {
-  background-color: var(--surface);
+  background-color: $win-surface-color;
   &:hover {
-    background-color: var(--button-highlight);
+    background-color: $button-highlight;
   }
 }
 

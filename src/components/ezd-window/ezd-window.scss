@@ -1,13 +1,19 @@
 
 @import '../../shared.scss';
 
+$title-bar-background: linear-gradient(90deg, $start-menu-secondary-color, $win-surface-color);
+
+$title-bar-background-inactive: linear-gradient(90deg, desaturate(lighten($start-menu-secondary-color, 20%), 60%), $win-surface-color);
+$title-bar-background-inactive: linear-gradient(90deg, lighten($start-menu-secondary-color, 20%), 60%, $win-surface-color);
+
 .ezd-window {
   padding: 3px;
+  // box-shadow: none;
 
   &:not(.active) {
     .title-bar {
       // background: linear-gradient(90deg, lighten($start-menu-secondary-color, 20%), var(--surface));
-      background: linear-gradient(90deg, desaturate(lighten($start-menu-secondary-color, 20%), 60%), var(--surface));
+      background: $title-bar-background-inactive;
       // background: linear-gradient(90deg, var(--dialog-gray), var(--surface));
       // background: black;
     }
@@ -15,7 +21,8 @@
 
   .title-bar {
     display: flex;
-    background: linear-gradient(90deg, $start-menu-secondary-color, var(--surface));
+    background: $title-bar-background;
+
     .title-bar-text-container {
       flex: 1 1;
       cursor: grab;

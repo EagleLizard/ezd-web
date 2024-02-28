@@ -5,14 +5,39 @@ $md-contend-text-color: rgb(255, 255, 255);
 
 // $win-surface-color: rgb(192, 192, 192);
 $win-surface-color: rgb(160, 252, 78); // chartreuse
+// $win-surface-color: rgb(222, 222, 222);
 // $win-surface-color: rgb(116, 252, 78);
 // $win-surface-color: rgb(78, 252, 113);
+
+
+$win-surface-color: rgb(212, 224, 220); // headspace sage
+$win-surface-color: rgb(177, 206, 182); // headspace sage green
+
+// $win-surface-color: white;
 
 // $win-surface-color: darken($win-surface-color, 5%);
 
 // $start-menu-secondary-color: green;
 $start-menu-secondary-color: darken($win-surface-color, 40%);
 $win-surface-color-light: lighten($win-surface-color, 15%);
+
+$win-frame: darken($win-surface-color, 40%);
+
+$button-highlight: #000;
+$button-highlight: lighten($win-surface-color, 25%);
+$button-highlight: lighten($win-surface-color, 10%);
+
+
+$button-face: lighten($win-surface-color, 10%);
+
+$button-shadow: darken($win-surface-color, 20%);
+
+$border-raised-outer: inset -1px -1px $win-frame,
+  inset 1px 1px $button-face;
+$border-raised-inner: inset -2px -2px $button-shadow,
+inset 2px 2px $button-face;
+$border-sunken-inner: inset -2px -2px $button-face,
+inset 2px 2px $button-shadow;
 
 
 @mixin ezd-page {

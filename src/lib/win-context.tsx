@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { START_MENU_ITEMS, StartMenuItem } from '../top-nav/start-menu/start-menu';
+import React, { useState } from 'react';
 import { EventRegistry } from './event-registry';
 import { WindowItem, WindowItemParams } from '../models/window-item';
 import { MdWindowItem, MdWindowParams } from '../models/windows/md-window';
-import { INITIAL_WINDOW_ITEMS } from './window-manager';
 import { ClockWindowItem } from '../models/windows/clock-window';
 
 type StartMenuSelectEventHandler = (data: WindowItem) => void;
+
+type LaunchClockWinParams = {
+  initTimestamp: number,
+};
 
 export type WinCtx = {
   startMenuSelect: (startMenuItem: WindowItem) => void;
@@ -19,7 +21,7 @@ export type WinCtx = {
   isWindowActive: (windowId: string) => boolean;
 
   launchMdWin: (winParams: MdWindowParams) => void;
-  launchClockWin: () => void;
+  launchClockWin: (params: LaunchClockWinParams) => void;
 
   openWindowState: [
     WindowItem[],
@@ -88,7 +90,7 @@ export function WinContextProvider(props: WinContextProviderProps) {
   );
 
 
-  function launchClockWin() {
+  function launchClockWin(params: LaunchClockWinParams) {
     let nextClockWin: ClockWindowItem;
     let openWindow: WindowItem | undefined;
     openWindow = getOpenWindow('clock');
@@ -101,6 +103,7 @@ export function WinContextProvider(props: WinContextProviderProps) {
       width: 300,
       height: 200,
       layer: getTopLayer() + 1,
+      initTimestamp: params.initTimestamp,
     });
 
     setOpenWindows([

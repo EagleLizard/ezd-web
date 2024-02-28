@@ -4,19 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { Instance as PopperInstance } from '@popperjs/core'
 
 import { useWinCtx } from './win-context';
-import { START_MENU_ITEMS, StartMenuItem } from '../top-nav/start-menu/start-menu';
+import { StartMenuItem } from '../top-nav/start-menu/start-menu';
 import { Popper } from '@mui/material';
 import { EzdWindow } from '../components/ezd-window/ezd-window';
 import { BASE_Z_INDEX, WindowItem } from '../models/window-item';
-
-export const INITIAL_WINDOW_ITEMS = [
-  START_MENU_ITEMS[2],
-  START_MENU_ITEMS[0],
-  START_MENU_ITEMS[1],
-].map((initialWinItem, idx) => {
-  initialWinItem.layer = idx + 1;
-  return initialWinItem;
-});
 
 export function WindowManager() {
   const winCtx = useWinCtx();
