@@ -17,3 +17,12 @@ services:
       - TUNNEL_TOKEN=${CLOUDEFLARE_TUNNEL_TOKEN}
     volumes:
       - ${HOME_BASE_DIR}/cloudflare-tunnel/config:/etc/cloudflared
+  cloudflare-tunnel-2:
+    container_name: cloudflare-tunnel-2
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDEFLARE_TUNNEL_TOKEN_2}
+    volumes:
+      - ${HOME_BASE_DIR}/cloudflare-tunnel-2/config:/etc/cloudflared
