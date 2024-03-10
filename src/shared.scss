@@ -39,11 +39,6 @@ inset 2px 2px $button-face;
 $border-sunken-inner: inset -2px -2px $button-face,
 inset 2px 2px $button-shadow;
 
-
-@mixin ezd-page {
-  padding: 1em;
-}
-
 @mixin ezd-markdown {
   h1 {
     &:first-of-type {

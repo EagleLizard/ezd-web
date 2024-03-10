@@ -1,5 +1,4 @@
 
-import './__root.scss';
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { TopNav } from '../top-nav/top-nav'
@@ -19,7 +18,8 @@ export const Route = createRootRoute({
         </Link>
       </div> */}
       {/* <hr /> */}
-      <WinContextProvider>
+      <Outlet />
+      {/* <WinContextProvider>
         <div
           className="ezd-web-root"
           id="ezd-web-root"
@@ -30,7 +30,7 @@ export const Route = createRootRoute({
           <WindowManager/>
           <TopNav/>
         </div>
-      </WinContextProvider>
+      </WinContextProvider> */}
       {/* </div> */}
       {/* <TanStackRouterDevtools /> */}
     </>

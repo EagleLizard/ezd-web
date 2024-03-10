@@ -30,7 +30,7 @@ export type WinCtx = {
 };
 
 type WinContextProviderProps = {
-  children: JSX.Element | null;
+  children: React.ReactElement | null;
 };
 
 const WinContext = React.createContext<WinCtx | undefined>(undefined);
