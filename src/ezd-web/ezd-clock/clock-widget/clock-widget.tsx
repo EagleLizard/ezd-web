@@ -18,7 +18,7 @@ export function ClockWidget(props: ClockWidgetProps) {
     ? hours - 12
     : hours
   ;
-  const hoursMod = (twelveHours + minsMod) / 12;
+  const hoursMod = (twelveHours + minsMod + (secsMod / 60)) / 12;
 
   return (
     <div className="clock-widget">

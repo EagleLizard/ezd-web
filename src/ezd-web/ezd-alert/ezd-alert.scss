@@ -1,0 +1,21 @@
+
+.ezd-alert {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  .alert-content {
+    display: flex;
+    .alert-image-container {
+
+    }
+    .alert-message {
+
+    }
+  }
+  .alert-action-container {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}

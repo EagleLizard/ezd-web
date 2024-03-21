@@ -65,6 +65,10 @@ $scrollbar-button-bg-color: $win-surface-color-light;
   }
 }
 
+button.MuiIconButton-root:hover {
+  background-color: transparent;
+}
+
 button.ezd-button {
   background-color: $win-surface-color;
   &:hover {
@@ -74,5 +78,7 @@ button.ezd-button {
 
 body {
   // font-family: 'Pixelated MS Sans Serif';
-  
+  // a {
+  //   color: chartreuse;
+  // }
 }

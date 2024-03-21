@@ -16,16 +16,12 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const LoginLazyImport = createFileRoute('/login')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
+const LoginIndexLazyImport = createFileRoute('/login/')()
+const LoginRegisterLazyImport = createFileRoute('/login/register')()
 
 // Create/Update Routes
-
-const LoginLazyRoute = LoginLazyImport.update({
-  path: '/login',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
 
 const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
@@ -36,6 +32,18 @@ const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const LoginIndexLazyRoute = LoginIndexLazyImport.update({
+  path: '/login/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/login/index.lazy').then((d) => d.Route))
+
+const LoginRegisterLazyRoute = LoginRegisterLazyImport.update({
+  path: '/login/register',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/login/register.lazy').then((d) => d.Route),
+)
 
 // Populate the FileRoutesByPath interface
 
@@ -49,8 +57,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
     }
-    '/login': {
-      preLoaderRoute: typeof LoginLazyImport
+    '/login/register': {
+      preLoaderRoute: typeof LoginRegisterLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/login/': {
+      preLoaderRoute: typeof LoginIndexLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -61,7 +73,8 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   AboutLazyRoute,
-  LoginLazyRoute,
+  LoginRegisterLazyRoute,
+  LoginIndexLazyRoute,
 ])
 
 /* prettier-ignore-end */

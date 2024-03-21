@@ -18,6 +18,11 @@ const ezdTheme = createTheme({
     
   },
   components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      }
+    },
     MuiButton: {
       defaultProps: {
         disableRipple: true,

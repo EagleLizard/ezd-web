@@ -10,7 +10,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "sourceMap": true,
-    "types": ["node"]
+    "types": [
+      "node",
+      "vite/client"
+    ]
   },
   "include": [
     "src/@types/**/*",

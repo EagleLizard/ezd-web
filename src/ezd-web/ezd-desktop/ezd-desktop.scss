@@ -1,0 +1,25 @@
+
+@import '../../shared.scss';
+.ezd-desktop {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .ezd-web-page {
+    flex: 1 1;
+    // background-color: silver;
+    // background-color: rgb(58, 58, 58);
+    background: url('../assets/Clouds_\(Windows_95\).png');
+    background: url('../assets/Stonehenge_Windows_XP.jpg');
+    background-position: center center;
+    background-size: cover;
+    // background-size: auto;
+    filter:
+      // hue-rotate(100deg)
+      hue-rotate(70deg)
+      saturate(0.8)
+      // contrast(0.9)
+    ;
+    // filter: hue-rotate(100deg) saturate(1);
+
+  } 
+}
