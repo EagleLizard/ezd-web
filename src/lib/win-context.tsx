@@ -3,6 +3,7 @@ import { EventRegistry } from './event-registry';
 import { WindowItem, WindowItemParams } from '../models/window-item';
 import { MdWindowItem, MdWindowParams } from '../models/windows/md-window';
 import { ClockWindowItem } from '../models/windows/clock-window';
+import { AlertWinItemParams, AlertWindowItem } from '../models/windows/alert-window';
 
 type StartMenuSelectEventHandler = (data: WindowItem) => void;
 
@@ -22,6 +23,7 @@ export type WinCtx = {
 
   launchMdWin: (winParams: MdWindowParams) => void;
   launchClockWin: (params: LaunchClockWinParams) => void;
+  launchAlertWin: (params: AlertWinItemParams) => void;
 
   openWindowState: [
     WindowItem[],
@@ -73,6 +75,7 @@ export function WinContextProvider(props: WinContextProviderProps) {
   
     launchMdWin,
     launchClockWin,
+    launchAlertWin,
 
     openWindowState: [
       openWindows,
@@ -112,6 +115,24 @@ export function WinContextProvider(props: WinContextProviderProps) {
     ]);
   }
 
+  function launchAlertWin(alertWinParams: AlertWinItemParams) {
+    let nextAlertWin: AlertWindowItem;
+    let openWindow: WindowItem | undefined;
+    openWindow = getOpenWindow(alertWinParams.key);
+    if(openWindow !== undefined) {
+      // setWinMinimized(openWindow.id, false);
+      // toTopLayer(openWindow.id);
+      return;
+    }
+    nextAlertWin = AlertWindowItem.init({
+      ...alertWinParams,
+      layer: getTopLayer() + 1,
+    });
+    setOpenWindows([
+      ...openWindows,
+      nextAlertWin,
+    ]);
+  }
 
   function launchMdWin(mdWinParams: MdWindowParams) {
     let nextMdWin: MdWindowItem;

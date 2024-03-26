@@ -28,3 +28,7 @@ export function isPromise(val: unknown): boolean {
   }
   return typeof (val as any)?.then === 'function';
 }
+
+export function isBoolean(val: unknown): val is boolean {
+  return (typeof val) === 'boolean';
+}

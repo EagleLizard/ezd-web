@@ -33,7 +33,6 @@ export class MdWindowItem extends WindowItem {
       let mdConent: string;
       rawResp = await fetch(url);
       mdConent = await rawResp.text();
-      console.log(mdConent);
       return mdConent;
     }
   }

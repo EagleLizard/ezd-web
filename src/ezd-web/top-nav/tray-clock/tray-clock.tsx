@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 import './tray-clock.scss';
-import { useWinCtx } from '../../lib/win-context';
-import { EzdClock } from '../../ezd-web/ezd-clock/ezd-clock';
-import { getTimeString } from '../../lib/date-time-util';
+import { useWinCtx } from '../../../lib/win-context';
+import { EzdClock } from '../../ezd-clock/ezd-clock';
+import { getTimeString } from '../../../lib/date-time-util';
 
 type TrayClockProps = {
 

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Instance as PopperInstance } from '@popperjs/core'
 
 import { useWinCtx } from './win-context';
-import { StartMenuItem } from '../top-nav/start-menu/start-menu';
+import { StartMenuItem } from '../ezd-web/top-nav/start-menu/start-menu';
 import { Popper } from '@mui/material';
 import { EzdWindow } from '../components/ezd-window/ezd-window';
 import { BASE_Z_INDEX, WindowItem } from '../models/window-item';

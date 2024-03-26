@@ -1,7 +1,7 @@
 
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
-import { TopNav } from '../top-nav/top-nav'
+import { TopNav } from '../ezd-web/top-nav/top-nav'
 
 import { WinContextProvider } from '../lib/win-context';
 import { WindowManager } from '../lib/window-manager';
